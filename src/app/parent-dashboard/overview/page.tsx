@@ -57,7 +57,7 @@ export default function ParentOverviewPage() {
                 Welcome, {MOCK_PARENT.firstName} {MOCK_PARENT.lastName} 👋
               </h1>
               <p className="text-white/70 text-sm mt-1">
-                {MOCK_PARENT.children.length} Ward{MOCK_PARENT.children.length !== 1 ? "s" : ""} Registered · {MOCK_PARENT.phone}
+                {MOCK_PARENT.children.length} Ward{(MOCK_PARENT.children.length as number) !== 1 ? "s" : ""} Registered · {MOCK_PARENT.phone}
               </p>
             </div>
             <Link

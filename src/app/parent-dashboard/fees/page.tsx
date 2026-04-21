@@ -46,7 +46,7 @@ export default function ParentFeesPage() {
           <p className="text-3xl font-bold text-brand-green">
             ₦{totalPaid.toLocaleString()}
           </p>
-          <p className="text-xs text-slate-400 mt-1">{PAYMENT_HISTORY.length} payment{PAYMENT_HISTORY.length !== 1 ? "s" : ""} made</p>
+          <p className="text-xs text-slate-400 mt-1">{PAYMENT_HISTORY.length} payment{(PAYMENT_HISTORY.length as number) !== 1 ? "s" : ""} made</p>
         </div>
 
         <div className="bg-white rounded-xl border border-slate-200/60 p-6 flex flex-col items-center justify-center text-center">

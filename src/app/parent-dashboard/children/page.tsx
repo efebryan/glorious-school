@@ -36,7 +36,7 @@ export default function ParentChildrenPage() {
         </div>
         <div className="flex items-center gap-2 text-sm">
           <span className="px-3 py-1.5 bg-brand-green/10 text-brand-green font-bold rounded-lg text-xs">
-            {MOCK_PARENT.children.length} Ward{MOCK_PARENT.children.length !== 1 ? "s" : ""}
+            {MOCK_PARENT.children.length} Ward{(MOCK_PARENT.children.length as number) !== 1 ? "s" : ""}
           </span>
         </div>
       </div>
