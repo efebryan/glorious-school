@@ -15,7 +15,7 @@ export function ParentSidebar({
 
   return (
     <aside 
-      className={`hidden lg:flex flex-col bg-slate-900 text-slate-300 fixed inset-y-0 left-0 z-30 transition-[width] duration-300 ease-in-out ${
+      className={`hidden lg:flex flex-col bg-[#0f2316] text-slate-300 fixed inset-y-0 left-0 z-30 transition-[width] duration-300 ease-in-out ${
         isCollapsed ? "w-[84px]" : "w-[260px]"
       }`}
     >
@@ -41,7 +41,7 @@ export function ParentSidebar({
           </div>
           <div className={`flex flex-col leading-tight whitespace-nowrap transition-opacity duration-300 ${isCollapsed ? "opacity-0 w-0" : "opacity-100"}`}>
             <span className="font-bold text-[15px] text-white">Glorious Portal</span>
-            <span className="text-[10px] text-brand-yellow font-medium tracking-wider uppercase">Parent</span>
+            <span className="text-[10px] text-white/40 font-medium tracking-wider uppercase">Parent</span>
           </div>
         </Link>
       </div>
@@ -67,7 +67,7 @@ export function ParentSidebar({
                 isCollapsed ? "justify-center h-12 w-12 mx-auto" : "gap-3 px-3 py-2.5 text-[13px]"
               } ${
                 isActive
-                  ? "bg-brand-green/20 text-white font-semibold"
+                  ? "bg-brand-green/15 text-white font-semibold"
                   : "text-white/60 hover:bg-white/[.06] hover:text-white/90"
               }`}
             >
@@ -78,7 +78,7 @@ export function ParentSidebar({
               <div className="relative shrink-0 flex items-center justify-center">
                 <span className={isCollapsed ? "text-xl" : "text-base"}>{item.icon}</span>
                 {item.name === "Messages" && PARENT_UNREAD_COUNT > 0 && (
-                  <span className={`absolute bg-red-500 text-white font-bold rounded-full flex items-center justify-center ring-2 ring-slate-900 ${
+                  <span className={`absolute bg-red-500 text-white font-bold rounded-full flex items-center justify-center ring-2 ring-[#0f2316] ${
                     isCollapsed 
                       ? "-top-1 -right-1 w-3 h-3 text-[0px]" 
                       : "-top-1.5 -right-2.5 w-4 h-4 text-[9px]"

@@ -45,7 +45,7 @@ export function ParentTopBar() {
 
           <div className="flex items-center gap-2">
             <ParentNotificationDropdown />
-            <Link href="/parent-dashboard/profile" className="w-8 h-8 rounded-full bg-slate-100 border border-slate-200 text-xs font-bold text-slate-700 flex items-center justify-center">
+            <Link href="/parent-dashboard/profile" className="w-8 h-8 rounded-full bg-brand-green/10 border border-brand-green/20 text-xs font-bold text-brand-green flex items-center justify-center">
               {MOCK_PARENT.initials}
             </Link>
           </div>
@@ -68,7 +68,7 @@ export function ParentTopBar() {
 
         {/* Drawer */}
         <div
-          className={`absolute top-0 left-0 bottom-0 w-72 max-w-[85vw] bg-slate-900 text-white flex flex-col transition-transform duration-300 ease-out ${
+          className={`absolute top-0 left-0 bottom-0 w-72 max-w-[85vw] bg-[#0f2316] text-white flex flex-col transition-transform duration-300 ease-out ${
             open ? "translate-x-0" : "-translate-x-full"
           }`}
         >
@@ -101,7 +101,7 @@ export function ParentTopBar() {
                   onClick={() => setOpen(false)}
                   className={`flex items-center gap-3 px-3 py-3 rounded-lg text-sm transition-colors relative ${
                     isActive
-                      ? "bg-brand-green/20 text-white font-semibold"
+                      ? "bg-brand-green/15 text-white font-semibold"
                       : "text-white/60 hover:bg-white/[.06] hover:text-white/90"
                   }`}
                 >
