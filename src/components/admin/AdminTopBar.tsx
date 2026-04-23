@@ -27,13 +27,13 @@ export function AdminTopBar({ activeRole, onRoleChange }: AdminTopBarProps) {
 
   return (
     <>
-      {/* Mobile top bar — visible only on < lg */}
-      <header className="lg:hidden sticky top-0 z-30 bg-white/95 backdrop-blur-md border-b border-slate-200/60 shadow-sm">
-        <div className="flex items-center justify-between px-4 h-16">
+      {/* Top bar — visible on all screens */}
+      <header className="sticky top-0 z-30 bg-white/95 backdrop-blur-md border-b border-slate-200/60 shadow-sm">
+        <div className="flex items-center justify-between px-4 lg:px-8 h-16">
           <div className="flex items-center gap-3">
             <button
               onClick={() => setMobileOpen(true)}
-              className="w-9 h-9 rounded-lg bg-slate-100 hover:bg-slate-200 flex items-center justify-center transition-colors"
+              className="lg:hidden w-9 h-9 rounded-lg bg-slate-100 hover:bg-slate-200 flex items-center justify-center transition-colors"
               aria-label="Open menu"
             >
               <svg className="w-5 h-5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -42,7 +42,7 @@ export function AdminTopBar({ activeRole, onRoleChange }: AdminTopBarProps) {
             </button>
             <div>
               <p className="text-sm font-bold text-slate-900">{pageTitle}</p>
-              <span className={`inline-block text-[9px] font-bold px-1.5 py-0.5 rounded-full ${ADMIN_ROLE_COLORS[activeRole]}`}>
+              <span className={`lg:hidden inline-block text-[9px] font-bold px-1.5 py-0.5 rounded-full ${ADMIN_ROLE_COLORS[activeRole]}`}>
                 {ADMIN_ROLE_LABELS[activeRole]}
               </span>
             </div>
