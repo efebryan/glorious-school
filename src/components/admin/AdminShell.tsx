@@ -31,7 +31,7 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
         <main className="flex-1 pb-10">{children}</main>
 
         {/* Dashboard Footer */}
-        <footer className="mt-auto py-6 px-4 lg:px-8 border-t border-slate-200/60 text-center text-xs text-slate-500 font-medium">
+        <footer className="sticky bottom-0 z-20 bg-slate-100/90 backdrop-blur-md mt-auto py-4 px-4 lg:px-8 border-t border-slate-200/60 text-center text-xs text-slate-500 font-medium shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.02)]">
           <p>© {new Date().getFullYear()} Glorious Group of Schools — Admin Panel</p>
         </footer>
       </div>
