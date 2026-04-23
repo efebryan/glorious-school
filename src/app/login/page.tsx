@@ -94,6 +94,7 @@ export default function LoginPage() {
             
             <div className="mt-6 border-t border-slate-100 pt-6 text-center text-xs text-slate-500 space-y-1">
               <p>For Result Checking, please use the <Link href="/result-checker" className="text-brand-yellow-600 font-medium hover:underline">Result Checker Portal</Link>.</p>
+              <p>Staff members? Access the <Link href="/staff-dashboard/overview" className="text-brand-green font-medium hover:underline">Staff Portal</Link>.</p>
             </div>
           </CardContent>
         </Card>
