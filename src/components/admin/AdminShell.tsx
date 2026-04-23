@@ -25,6 +25,8 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
           isCollapsed ? "lg:ml-[84px]" : "lg:ml-[270px]"
         }`}
       >
+        <AdminTopBar activeRole={activeRole} onRoleChange={setActiveRole} />
+
         {/* Page Content */}
         <main className="flex-1 pb-10">{children}</main>
 
