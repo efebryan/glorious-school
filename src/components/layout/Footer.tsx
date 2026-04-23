@@ -78,7 +78,7 @@ export function Footer() {
             <ul className="space-y-3 text-sm">
               <li className="flex items-start">
                 <span className="mr-2.5 text-brand-green mt-0.5 shrink-0">📍</span>
-                <span>123 Glorious Avenue, Ughelli, Delta State, Nigeria</span>
+                <span>20 Daniel umukoro Street, Ughelli, Delta State.</span>
               </li>
               <li className="flex items-center">
                 <span className="mr-2.5 text-brand-green shrink-0">📞</span>
