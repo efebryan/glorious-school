@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { StaffSidebar } from "@/components/staff-dashboard/StaffSidebar";
+import { StaffTopBar } from "@/components/staff-dashboard/StaffTopBar";
 import { StaffRole } from "@/lib/staff-dashboard-config";
 
 // Mock: latest staff notice
@@ -12,7 +13,11 @@ const LATEST_NOTICE = {
   date: "February 24, 2026",
 };
 
-export function StaffDashboardShell({ children }: { children: React.ReactNode }) {
+export function StaffDashboardShell({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [showNotice, setShowNotice] = useState(true);
   const [activeRole, setActiveRole] = useState<StaffRole>("teacher");
@@ -33,12 +38,18 @@ export function StaffDashboardShell({ children }: { children: React.ReactNode })
           isCollapsed ? "lg:ml-[84px]" : "lg:ml-[260px]"
         }`}
       >
+        {/* Top Header */}
+        <StaffTopBar activeRole={activeRole} onRoleChange={setActiveRole} />
+
         {/* Page Content */}
         <main className="flex-1 pb-10">{children}</main>
 
         {/* Dashboard Footer */}
         <footer className="mt-auto py-6 px-4 lg:px-8 border-t border-slate-200/60 text-center text-xs text-slate-500 font-medium">
-          <p>© {new Date().getFullYear()} Glorious Group of Schools. All rights reserved.</p>
+          <p>
+            © {new Date().getFullYear()} Glorious Group of Schools. All rights
+            reserved.
+          </p>
         </footer>
       </div>
 
@@ -67,15 +78,29 @@ export function StaffDashboardShell({ children }: { children: React.ReactNode })
                 className="p-1 text-white/60 hover:text-white rounded-md transition-colors shrink-0 ml-3"
                 aria-label="Close"
               >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
                 </svg>
               </button>
             </div>
             {/* Body */}
             <div className="px-6 py-5">
-              <p className="text-sm text-slate-600 leading-relaxed">{LATEST_NOTICE.body}</p>
-              <p className="text-xs text-slate-400 mt-4">{LATEST_NOTICE.date}</p>
+              <p className="text-sm text-slate-600 leading-relaxed">
+                {LATEST_NOTICE.body}
+              </p>
+              <p className="text-xs text-slate-400 mt-4">
+                {LATEST_NOTICE.date}
+              </p>
             </div>
             {/* Footer */}
             <div className="px-6 pb-5">
