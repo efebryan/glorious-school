@@ -92,9 +92,13 @@ export default function LoginPage() {
               </Link>
             </div>
             
-            <div className="mt-6 border-t border-slate-100 pt-6 text-center text-xs text-slate-500 space-y-1">
+            <div className="mt-6 border-t border-slate-100 pt-6 text-center text-xs text-slate-500 space-y-2">
               <p>For Result Checking, please use the <Link href="/result-checker" className="text-brand-yellow-600 font-medium hover:underline">Result Checker Portal</Link>.</p>
-              <p>Staff members? Access the <Link href="/staff-dashboard/overview" className="text-brand-green font-medium hover:underline">Staff Portal</Link>.</p>
+              <div className="flex items-center justify-center gap-3">
+                <p>Staff members? Access the <Link href="/staff-dashboard/overview" className="text-brand-green font-medium hover:underline">Staff Portal</Link>.</p>
+                <span className="text-slate-300">|</span>
+                <Link href="/admin/overview" className="text-indigo-600 font-medium hover:underline">Admin Panel</Link>
+              </div>
             </div>
           </CardContent>
         </Card>
