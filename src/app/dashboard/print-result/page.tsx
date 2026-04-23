@@ -76,7 +76,7 @@ export default function PrintResultPage() {
               Glorious Group of Schools
             </h1>
             <p className="text-xs text-slate-500 mt-1 tracking-wide">
-              No. 15 Education Avenue, Ughelli, Delta State, Nigeria
+              20 Daniel umukoro Street, Ughelli, Delta State.
             </p>
             <p className="text-[11px] text-slate-400 italic mt-0.5">
               Motto: &ldquo;Ensuring Excellence in Education&rdquo;
