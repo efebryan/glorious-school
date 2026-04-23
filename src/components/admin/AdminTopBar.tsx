@@ -10,6 +10,7 @@ import {
   MOCK_ADMIN,
   getAllNavItems,
 } from "@/lib/admin-config";
+import { AdminNotificationDropdown } from "@/components/admin/AdminNotificationDropdown";
 
 interface AdminTopBarProps {
   activeRole: AdminRole;
@@ -47,8 +48,11 @@ export function AdminTopBar({ activeRole, onRoleChange }: AdminTopBarProps) {
               </span>
             </div>
           </div>
-          <div className="w-8 h-8 rounded-full bg-indigo-100 text-indigo-600 text-xs font-bold flex items-center justify-center">
-            {MOCK_ADMIN.initials}
+          <div className="flex items-center gap-2 lg:gap-3 lg:-mr-2">
+            <AdminNotificationDropdown />
+            <div className="w-8 h-8 rounded-full bg-indigo-100 text-indigo-600 text-xs font-bold flex items-center justify-center border border-indigo-200">
+              {MOCK_ADMIN.initials}
+            </div>
           </div>
         </div>
       </header>
