@@ -128,7 +128,7 @@ export default function ContactPage() {
                     <div className="w-10 h-10 sm:w-12 sm:h-12 bg-white/10 rounded-full flex items-center justify-center shrink-0 mr-3 sm:mr-4 text-lg sm:text-xl">📍</div>
                     <div>
                       <h4 className="font-bold text-brand-yellow mb-1 text-xs uppercase tracking-wider">Address</h4>
-                      <p className="text-white/80 leading-relaxed text-xs sm:text-sm">123 Glorious Avenue,<br/>Ughelli, Delta State,<br/>Nigeria.</p>
+                      <p className="text-white/80 leading-relaxed text-xs sm:text-sm">20 Daniel umukoro Street,<br/>Ughelli, Delta State.</p>
                     </div>
                   </div>
                   
@@ -171,7 +171,7 @@ export default function ContactPage() {
               <div className="absolute inset-0 bg-brand-green-700/70 flex flex-col items-center justify-center text-white p-6 text-center">
                 <span className="text-3xl sm:text-4xl mb-2">🗺️</span>
                 <span className="font-bold text-sm sm:text-base mb-1">Find Us on the Map</span>
-                <span className="text-xs text-white/70">123 Glorious Avenue, Ughelli, Delta State</span>
+                <span className="text-xs text-white/70">20 Daniel umukoro Street, Ughelli, Delta State.</span>
               </div>
             </div>
           </div>
