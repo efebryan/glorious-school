@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { StaffSidebar } from "@/components/staff-dashboard/StaffSidebar";
-import { StaffTopBar } from "@/components/staff-dashboard/StaffTopBar";
 import { StaffRole } from "@/lib/staff-dashboard-config";
 
 // Mock: latest staff notice
@@ -34,9 +33,6 @@ export function StaffDashboardShell({ children }: { children: React.ReactNode })
           isCollapsed ? "lg:ml-[84px]" : "lg:ml-[260px]"
         }`}
       >
-        {/* Top Header */}
-        <StaffTopBar activeRole={activeRole} onRoleChange={setActiveRole} />
-
         {/* Page Content */}
         <main className="flex-1 pb-10">{children}</main>
 
