@@ -59,7 +59,7 @@ export function AdminSidebar({ isCollapsed, toggleSidebar, activeRole, onRoleCha
       )}
 
       {/* Navigation Groups */}
-      <nav className="flex-1 overflow-y-auto py-3 px-3 space-y-1 scrollbar-thin">
+      <nav className="flex-1 overflow-y-auto py-3 px-3 space-y-1 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
         {navGroups.map((group) => (
           <div key={group.label} className="mb-1">
             {!isCollapsed && (
@@ -69,7 +69,7 @@ export function AdminSidebar({ isCollapsed, toggleSidebar, activeRole, onRoleCha
             )}
             {isCollapsed && <div className="h-px bg-slate-800 mx-2 my-2" />}
             {group.items.map((item) => {
-              const isActive = pathname === item.href || (item.href !== "/admin/overview" && pathname.startsWith(item.href + "/"));
+              const isActive = pathname === item.href;
               return (
                 <Link
                   key={item.href}
