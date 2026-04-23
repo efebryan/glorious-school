@@ -6,7 +6,7 @@ import { Footer } from './Footer';
 
 export function ConditionalWrapper({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const isDashboard = pathname.startsWith('/dashboard') || pathname.startsWith('/parent-dashboard') || pathname.startsWith('/staff-dashboard');
+  const isDashboard = pathname.startsWith('/dashboard') || pathname.startsWith('/parent-dashboard') || pathname.startsWith('/staff-dashboard') || pathname.startsWith('/admin');
 
   return (
     <>
