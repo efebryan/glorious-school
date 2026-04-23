@@ -89,7 +89,7 @@ export function AdminNotificationDropdown() {
         <div className="absolute right-0 mt-2 w-80 sm:w-96 bg-white rounded-xl border border-slate-200/80 shadow-xl z-50 overflow-hidden animate-fade-in-up">
           <div className="px-4 py-3 border-b border-slate-100 flex items-center justify-between">
             <h3 className="text-sm font-bold text-slate-800">Alerts & Notifications</h3>
-            <span className="text-[11px] font-semibold text-indigo-600 cursor-pointer hover:underline">
+            <span className="text-[11px] font-semibold text-brand-green cursor-pointer hover:underline">
               Mark all read
             </span>
           </div>
@@ -99,7 +99,7 @@ export function AdminNotificationDropdown() {
               <div
                 key={n.id}
                 className={`px-4 py-3 flex gap-3 items-start hover:bg-slate-50/60 transition-colors cursor-pointer ${
-                  !n.read ? "bg-indigo-50/30" : ""
+                  !n.read ? "bg-brand-green-50/30" : ""
                 }`}
               >
                 <div className="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-sm shrink-0 shadow-sm border border-slate-200/50">
@@ -113,14 +113,14 @@ export function AdminNotificationDropdown() {
                   <p className="text-[10px] text-slate-400 mt-1">{n.time}</p>
                 </div>
                 {!n.read && (
-                  <span className="w-2 h-2 rounded-full bg-indigo-500 shrink-0 mt-1.5" />
+                  <span className="w-2 h-2 rounded-full bg-brand-yellow shrink-0 mt-1.5" />
                 )}
               </div>
             ))}
           </div>
 
           <div className="px-4 py-2.5 border-t border-slate-100 text-center bg-slate-50">
-            <span className="text-xs font-semibold text-indigo-600 cursor-pointer hover:underline">
+            <span className="text-xs font-semibold text-brand-green cursor-pointer hover:underline">
               View all notifications →
             </span>
           </div>

@@ -50,7 +50,7 @@ export function AdminTopBar({ activeRole, onRoleChange }: AdminTopBarProps) {
           </div>
           <div className="flex items-center gap-2 lg:gap-3 lg:-mr-2">
             <AdminNotificationDropdown />
-            <div className="w-8 h-8 rounded-full bg-indigo-100 text-indigo-600 text-xs font-bold flex items-center justify-center border border-indigo-200">
+            <div className="w-8 h-8 rounded-full bg-brand-green-100 text-brand-green text-xs font-bold flex items-center justify-center border border-brand-green-200">
               {MOCK_ADMIN.initials}
             </div>
           </div>
@@ -61,14 +61,14 @@ export function AdminTopBar({ activeRole, onRoleChange }: AdminTopBarProps) {
       {mobileOpen && (
         <div className="lg:hidden fixed inset-0 z-50">
           <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm" onClick={() => setMobileOpen(false)} />
-          <div className="absolute inset-y-0 left-0 w-[280px] flex flex-col animate-fade-in-up" style={{ background: "#020617" }}>
+          <div className="absolute inset-y-0 left-0 w-[280px] flex flex-col animate-fade-in-up" style={{ background: "#0f2316" }}>
             {/* Drawer header */}
             <div className="flex items-center justify-between px-5 py-4 border-b border-slate-800/60">
               <div className="flex items-center gap-2.5">
-                <div className="w-9 h-9 rounded-xl bg-indigo-600 flex items-center justify-center text-white font-bold text-sm">G</div>
+                <div className="w-9 h-9 rounded-xl bg-brand-green flex items-center justify-center text-white font-bold text-sm">G</div>
                 <div>
                   <p className="text-sm font-bold text-white">Glorious Schools</p>
-                  <p className="text-[9px] text-indigo-400 font-bold uppercase tracking-widest">Admin Panel</p>
+                  <p className="text-[9px] text-brand-yellow font-bold uppercase tracking-widest">Admin Panel</p>
                 </div>
               </div>
               <button
@@ -104,7 +104,7 @@ export function AdminTopBar({ activeRole, onRoleChange }: AdminTopBarProps) {
                     onClick={() => setMobileOpen(false)}
                     className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
                       isActive
-                        ? "bg-indigo-600/15 text-indigo-400"
+                        ? "bg-brand-green-600/15 text-brand-yellow"
                         : "text-slate-400 hover:text-white hover:bg-slate-800/60"
                     }`}
                   >
@@ -117,7 +117,7 @@ export function AdminTopBar({ activeRole, onRoleChange }: AdminTopBarProps) {
 
             {/* Profile */}
             <div className="border-t border-slate-800/60 px-4 py-4 flex items-center gap-3">
-              <div className="w-9 h-9 rounded-full bg-indigo-600/20 border border-indigo-500/30 text-indigo-400 text-xs font-bold flex items-center justify-center">
+              <div className="w-9 h-9 rounded-full bg-brand-green-600/20 border border-brand-green-500/30 text-brand-yellow text-xs font-bold flex items-center justify-center">
                 {MOCK_ADMIN.initials}
               </div>
               <div>

@@ -30,11 +30,11 @@ export default function CalendarPage() {
           <h1 className="text-xl font-bold text-slate-900">Calendar & Sessions</h1>
           <p className="text-sm text-slate-500 mt-0.5">Manage academic sessions, terms, and holidays</p>
         </div>
-        <button className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold rounded-lg transition-colors shadow-sm">Edit Session</button>
+        <button className="px-4 py-2 bg-brand-green hover:bg-brand-green-700 text-white text-sm font-semibold rounded-lg transition-colors shadow-sm">Edit Session</button>
       </div>
 
       {/* Active Session Banner */}
-      <div className="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-xl p-5 text-white">
+      <div className="bg-gradient-to-r from-brand-green to-purple-600 rounded-xl p-5 text-white">
         <p className="text-xs font-bold uppercase tracking-widest text-white/60 mb-1">Active Session</p>
         <h2 className="text-xl font-bold">2025/2026 Academic Session — 2nd Term</h2>
         <p className="text-sm text-white/70 mt-1">Current term ends Mar 28, 2026 • 4 weeks remaining</p>
@@ -67,7 +67,7 @@ export default function CalendarPage() {
       <div className="space-y-3">
         <div className="flex items-center justify-between">
           <h2 className="text-base font-bold text-slate-800">Declared Holidays</h2>
-          <button className="text-sm text-indigo-600 font-semibold hover:underline">+ Add Holiday</button>
+          <button className="text-sm text-brand-green font-semibold hover:underline">+ Add Holiday</button>
         </div>
         <div className="bg-white rounded-xl border border-slate-200/60 divide-y divide-slate-100">
           {HOLIDAYS.map((h, i) => (

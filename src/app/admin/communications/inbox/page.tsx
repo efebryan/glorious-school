@@ -59,7 +59,7 @@ export default function InboxPage() {
         {/* Message List */}
         <div className="lg:col-span-2 bg-white rounded-xl border border-slate-200/60 divide-y divide-slate-100 overflow-hidden">
           {data.map((item) => (
-            <button key={item.id} onClick={() => setSelectedId(item.id)} className={`w-full text-left px-5 py-4 hover:bg-slate-50/80 transition-colors ${selectedId === item.id ? "bg-indigo-50 border-l-2 border-l-indigo-500" : ""}`}>
+            <button key={item.id} onClick={() => setSelectedId(item.id)} className={`w-full text-left px-5 py-4 hover:bg-slate-50/80 transition-colors ${selectedId === item.id ? "bg-brand-green-50 border-l-2 border-l-brand-green-500" : ""}`}>
               <div className="flex items-center justify-between mb-1">
                 <p className={`text-sm ${item.status === "Unread" ? "font-bold text-slate-900" : "font-medium text-slate-700"}`}>{item.from}</p>
                 <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded-full ${STATUS_COLORS[item.status]}`}>{item.status}</span>
@@ -86,9 +86,9 @@ export default function InboxPage() {
               <p className="text-sm text-slate-700 leading-relaxed mb-6">{selected.preview}</p>
               <div>
                 <label className="text-xs font-medium text-slate-600 mb-1 block">Reply</label>
-                <textarea rows={3} placeholder="Type your reply..." className="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg focus:ring-2 focus:ring-indigo-500/30 focus:outline-none resize-none mb-3" />
+                <textarea rows={3} placeholder="Type your reply..." className="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg focus:ring-2 focus:ring-brand-green-500/30 focus:outline-none resize-none mb-3" />
                 <div className="flex gap-2">
-                  <button className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold rounded-lg transition-colors">Send Reply</button>
+                  <button className="px-4 py-2 bg-brand-green hover:bg-brand-green-700 text-white text-sm font-semibold rounded-lg transition-colors">Send Reply</button>
                   <button className="px-4 py-2 border border-slate-200 hover:bg-slate-50 text-sm font-medium text-slate-600 rounded-lg transition-colors">Archive</button>
                 </div>
               </div>

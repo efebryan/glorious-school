@@ -84,7 +84,7 @@ export default function SettingsPage() {
                   <p className="text-xs text-slate-500 mt-0.5">{section.desc}</p>
                 </div>
               </div>
-              <button className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-semibold rounded-lg transition-colors shadow-sm self-start sm:self-auto shrink-0">
+              <button className="px-4 py-2 bg-brand-green hover:bg-brand-green-700 text-white text-xs font-semibold rounded-lg transition-colors shadow-sm self-start sm:self-auto shrink-0">
                 Save Section
               </button>
             </div>
@@ -98,11 +98,11 @@ export default function SettingsPage() {
                     <div key={i}>
                       <label className="text-xs font-medium text-slate-600 mb-1.5 block">{f.label}</label>
                       {f.type === "select" ? (
-                        <select defaultValue={f.value} className="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg bg-slate-50 focus:bg-white focus:ring-2 focus:ring-indigo-500/30 focus:outline-none">
+                        <select defaultValue={f.value} className="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg bg-slate-50 focus:bg-white focus:ring-2 focus:ring-brand-green-500/30 focus:outline-none">
                           {f.options?.map(opt => <option key={opt}>{opt}</option>)}
                         </select>
                       ) : (
-                        <input type={f.type} defaultValue={f.value} className="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg bg-slate-50 focus:bg-white focus:ring-2 focus:ring-indigo-500/30 focus:outline-none" />
+                        <input type={f.type} defaultValue={f.value} className="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg bg-slate-50 focus:bg-white focus:ring-2 focus:ring-brand-green-500/30 focus:outline-none" />
                       )}
                     </div>
                   ))}
@@ -115,7 +115,7 @@ export default function SettingsPage() {
                   {section.toggles.map((t, i) => (
                     <div key={i} className="flex items-center justify-between">
                       <span className="text-sm font-medium text-slate-700">{t.label}</span>
-                      <button className={`w-11 h-6 rounded-full relative transition-colors ${t.active ? "bg-indigo-600" : "bg-slate-300"}`}>
+                      <button className={`w-11 h-6 rounded-full relative transition-colors ${t.active ? "bg-brand-green" : "bg-slate-300"}`}>
                         <span className={`absolute top-1 w-4 h-4 rounded-full bg-white transition-all ${t.active ? "right-1" : "left-1"}`} />
                       </button>
                     </div>

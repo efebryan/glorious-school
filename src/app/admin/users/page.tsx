@@ -49,7 +49,7 @@ export default function UsersPage() {
           <h1 className="text-xl font-bold text-slate-900">All Users</h1>
           <p className="text-sm text-slate-500 mt-0.5">Manage students, staff, parents, and admins</p>
         </div>
-        <button onClick={() => setShowAddModal(true)} className="inline-flex items-center gap-2 px-4 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold rounded-lg transition-colors shadow-sm">
+        <button onClick={() => setShowAddModal(true)} className="inline-flex items-center gap-2 px-4 py-2.5 bg-brand-green hover:bg-brand-green-700 text-white text-sm font-semibold rounded-lg transition-colors shadow-sm">
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4" /></svg>
           Add User
         </button>
@@ -67,7 +67,7 @@ export default function UsersPage() {
       {/* Search */}
       <div className="relative max-w-md">
         <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
-        <input type="text" placeholder="Search users..." value={search} onChange={(e) => setSearch(e.target.value)} className="w-full pl-10 pr-4 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500/30 bg-white" />
+        <input type="text" placeholder="Search users..." value={search} onChange={(e) => setSearch(e.target.value)} className="w-full pl-10 pr-4 py-2.5 text-sm border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-green-500/30 bg-white" />
       </div>
 
       {/* Tables */}
@@ -93,7 +93,7 @@ export default function UsersPage() {
                     <td className="px-4 py-3.5 text-slate-600 hidden md:table-cell">{s.dept}</td>
                     <td className="px-4 py-3.5 text-slate-600 hidden lg:table-cell">{s.guardian}</td>
                     <td className="px-4 py-3.5 text-center"><span className={`text-[11px] font-bold px-2 py-0.5 rounded-full ${s.status === "Active" ? "bg-green-100 text-green-700" : "bg-red-100 text-red-700"}`}>{s.status}</span></td>
-                    <td className="px-4 py-3.5 text-center"><button className="text-xs text-indigo-600 font-semibold hover:underline">Edit</button></td>
+                    <td className="px-4 py-3.5 text-center"><button className="text-xs text-brand-green font-semibold hover:underline">Edit</button></td>
                   </tr>
                 ))}
               </tbody>
@@ -115,11 +115,11 @@ export default function UsersPage() {
                   <tr key={i} className="hover:bg-slate-50/50 transition-colors">
                     <td className="px-5 py-3.5 font-semibold text-slate-800">{s.name}</td>
                     <td className="px-4 py-3.5 text-slate-600 font-mono text-xs">{s.id}</td>
-                    <td className="px-4 py-3.5 hidden sm:table-cell"><span className="text-[11px] font-bold px-2 py-0.5 rounded-full bg-indigo-100 text-indigo-700">{s.role}</span></td>
+                    <td className="px-4 py-3.5 hidden sm:table-cell"><span className="text-[11px] font-bold px-2 py-0.5 rounded-full bg-brand-green-100 text-brand-green-700">{s.role}</span></td>
                     <td className="px-4 py-3.5 text-slate-600 hidden md:table-cell">{s.dept}</td>
                     <td className="px-4 py-3.5 text-slate-600 hidden lg:table-cell">{s.classes}</td>
                     <td className="px-4 py-3.5 text-center"><span className="text-[11px] font-bold px-2 py-0.5 rounded-full bg-green-100 text-green-700">{s.status}</span></td>
-                    <td className="px-4 py-3.5 text-center"><button className="text-xs text-indigo-600 font-semibold hover:underline">Edit</button></td>
+                    <td className="px-4 py-3.5 text-center"><button className="text-xs text-brand-green font-semibold hover:underline">Edit</button></td>
                   </tr>
                 ))}
               </tbody>
@@ -175,19 +175,19 @@ export default function UsersPage() {
         <div className="fixed inset-0 z-[60] flex items-center justify-center p-4">
           <div className="absolute inset-0 bg-slate-900/50 backdrop-blur-sm" onClick={() => setShowAddModal(false)} />
           <div className="relative bg-white rounded-2xl shadow-2xl max-w-md w-full overflow-hidden animate-fade-in-up">
-            <div className="h-1.5 bg-gradient-to-r from-indigo-500 to-purple-500" />
+            <div className="h-1.5 bg-gradient-to-r from-brand-green-500 to-purple-500" />
             <div className="p-6">
               <h2 className="text-lg font-bold text-slate-900 mb-4">Add New User</h2>
               <div className="space-y-3">
-                <div><label className="text-xs font-medium text-slate-600 mb-1 block">User Type</label><select className="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg bg-white focus:ring-2 focus:ring-indigo-500/30 focus:outline-none"><option>Student</option><option>Staff</option><option>Parent</option><option>Admin</option></select></div>
+                <div><label className="text-xs font-medium text-slate-600 mb-1 block">User Type</label><select className="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg bg-white focus:ring-2 focus:ring-brand-green-500/30 focus:outline-none"><option>Student</option><option>Staff</option><option>Parent</option><option>Admin</option></select></div>
                 <div className="grid grid-cols-2 gap-3">
-                  <div><label className="text-xs font-medium text-slate-600 mb-1 block">First Name</label><input className="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg focus:ring-2 focus:ring-indigo-500/30 focus:outline-none" /></div>
-                  <div><label className="text-xs font-medium text-slate-600 mb-1 block">Last Name</label><input className="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg focus:ring-2 focus:ring-indigo-500/30 focus:outline-none" /></div>
+                  <div><label className="text-xs font-medium text-slate-600 mb-1 block">First Name</label><input className="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg focus:ring-2 focus:ring-brand-green-500/30 focus:outline-none" /></div>
+                  <div><label className="text-xs font-medium text-slate-600 mb-1 block">Last Name</label><input className="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg focus:ring-2 focus:ring-brand-green-500/30 focus:outline-none" /></div>
                 </div>
-                <div><label className="text-xs font-medium text-slate-600 mb-1 block">Email</label><input type="email" className="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg focus:ring-2 focus:ring-indigo-500/30 focus:outline-none" /></div>
+                <div><label className="text-xs font-medium text-slate-600 mb-1 block">Email</label><input type="email" className="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg focus:ring-2 focus:ring-brand-green-500/30 focus:outline-none" /></div>
               </div>
               <div className="mt-6 flex gap-3">
-                <button className="flex-1 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold rounded-lg transition-colors">Create User</button>
+                <button className="flex-1 py-2.5 bg-brand-green hover:bg-brand-green-700 text-white text-sm font-semibold rounded-lg transition-colors">Create User</button>
                 <button onClick={() => setShowAddModal(false)} className="px-4 py-2.5 text-sm font-medium text-slate-500 hover:bg-slate-100 rounded-lg transition-colors">Cancel</button>
               </div>
             </div>

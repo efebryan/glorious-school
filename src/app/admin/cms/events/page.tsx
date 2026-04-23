@@ -24,7 +24,7 @@ export default function EventsManagerPage() {
           <h1 className="text-xl font-bold text-slate-900">Events Manager</h1>
           <p className="text-sm text-slate-500 mt-0.5">Create and manage events shown on the public website</p>
         </div>
-        <button onClick={() => setShowCreate(true)} className="inline-flex items-center gap-2 px-4 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold rounded-lg transition-colors shadow-sm">
+        <button onClick={() => setShowCreate(true)} className="inline-flex items-center gap-2 px-4 py-2.5 bg-brand-green hover:bg-brand-green-700 text-white text-sm font-semibold rounded-lg transition-colors shadow-sm">
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4" /></svg>
           Create Event
         </button>
@@ -66,7 +66,7 @@ export default function EventsManagerPage() {
                   </td>
                   <td className="px-4 py-3.5 text-center">
                     <div className="flex items-center justify-center gap-2">
-                      <button className="text-xs text-indigo-600 font-semibold hover:underline">Edit</button>
+                      <button className="text-xs text-brand-green font-semibold hover:underline">Edit</button>
                       <button className="text-xs text-red-500 font-semibold hover:underline">Delete</button>
                     </div>
                   </td>
@@ -82,21 +82,21 @@ export default function EventsManagerPage() {
         <div className="fixed inset-0 z-[60] flex items-center justify-center p-4">
           <div className="absolute inset-0 bg-slate-900/50 backdrop-blur-sm" onClick={() => setShowCreate(false)} />
           <div className="relative bg-white rounded-2xl shadow-2xl max-w-lg w-full overflow-hidden animate-fade-in-up">
-            <div className="h-1.5 bg-gradient-to-r from-indigo-500 to-purple-500" />
+            <div className="h-1.5 bg-gradient-to-r from-brand-green-500 to-purple-500" />
             <div className="p-6">
               <h2 className="text-lg font-bold text-slate-900 mb-4">Create New Event</h2>
               <div className="space-y-3">
-                <div><label className="text-xs font-medium text-slate-600 mb-1 block">Event Title</label><input className="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg focus:ring-2 focus:ring-indigo-500/30 focus:outline-none" placeholder="e.g. Science Fair" /></div>
+                <div><label className="text-xs font-medium text-slate-600 mb-1 block">Event Title</label><input className="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg focus:ring-2 focus:ring-brand-green-500/30 focus:outline-none" placeholder="e.g. Science Fair" /></div>
                 <div className="grid grid-cols-2 gap-3">
-                  <div><label className="text-xs font-medium text-slate-600 mb-1 block">Date</label><input type="date" className="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg focus:ring-2 focus:ring-indigo-500/30 focus:outline-none" /></div>
-                  <div><label className="text-xs font-medium text-slate-600 mb-1 block">Time</label><input type="time" className="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg focus:ring-2 focus:ring-indigo-500/30 focus:outline-none" /></div>
+                  <div><label className="text-xs font-medium text-slate-600 mb-1 block">Date</label><input type="date" className="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg focus:ring-2 focus:ring-brand-green-500/30 focus:outline-none" /></div>
+                  <div><label className="text-xs font-medium text-slate-600 mb-1 block">Time</label><input type="time" className="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg focus:ring-2 focus:ring-brand-green-500/30 focus:outline-none" /></div>
                 </div>
-                <div><label className="text-xs font-medium text-slate-600 mb-1 block">Location</label><input className="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg focus:ring-2 focus:ring-indigo-500/30 focus:outline-none" placeholder="e.g. School Auditorium" /></div>
-                <div><label className="text-xs font-medium text-slate-600 mb-1 block">Description</label><textarea rows={3} className="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg focus:ring-2 focus:ring-indigo-500/30 focus:outline-none resize-none" placeholder="Brief description of the event..." /></div>
-                <div><label className="text-xs font-medium text-slate-600 mb-1 block">Status</label><select className="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg bg-white focus:ring-2 focus:ring-indigo-500/30 focus:outline-none"><option>Draft</option><option>Published</option></select></div>
+                <div><label className="text-xs font-medium text-slate-600 mb-1 block">Location</label><input className="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg focus:ring-2 focus:ring-brand-green-500/30 focus:outline-none" placeholder="e.g. School Auditorium" /></div>
+                <div><label className="text-xs font-medium text-slate-600 mb-1 block">Description</label><textarea rows={3} className="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg focus:ring-2 focus:ring-brand-green-500/30 focus:outline-none resize-none" placeholder="Brief description of the event..." /></div>
+                <div><label className="text-xs font-medium text-slate-600 mb-1 block">Status</label><select className="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg bg-white focus:ring-2 focus:ring-brand-green-500/30 focus:outline-none"><option>Draft</option><option>Published</option></select></div>
               </div>
               <div className="mt-6 flex gap-3">
-                <button className="flex-1 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold rounded-lg transition-colors">Create Event</button>
+                <button className="flex-1 py-2.5 bg-brand-green hover:bg-brand-green-700 text-white text-sm font-semibold rounded-lg transition-colors">Create Event</button>
                 <button onClick={() => setShowCreate(false)} className="px-4 py-2.5 text-sm font-medium text-slate-500 hover:bg-slate-100 rounded-lg transition-colors">Cancel</button>
               </div>
             </div>

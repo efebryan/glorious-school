@@ -97,7 +97,7 @@ export default function LoginPage() {
               <div className="flex items-center justify-center gap-3">
                 <p>Staff members? Access the <Link href="/staff-dashboard/overview" className="text-brand-green font-medium hover:underline">Staff Portal</Link>.</p>
                 <span className="text-slate-300">|</span>
-                <Link href="/admin/overview" className="text-indigo-600 font-medium hover:underline">Admin Panel</Link>
+                <Link href="/admin/overview" className="text-brand-green font-medium hover:underline">Admin Panel</Link>
               </div>
             </div>
           </CardContent>

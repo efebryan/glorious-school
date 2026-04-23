@@ -35,7 +35,7 @@ export default function AcademicsPage() {
           <p className="text-sm text-slate-500 mt-0.5">Configure school structure and curriculum</p>
         </div>
         <div className="flex gap-2">
-          <button className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold rounded-lg transition-colors shadow-sm">+ Add Class</button>
+          <button className="px-4 py-2 bg-brand-green hover:bg-brand-green-700 text-white text-sm font-semibold rounded-lg transition-colors shadow-sm">+ Add Class</button>
           <button className="px-4 py-2 bg-white border border-slate-200 hover:bg-slate-50 text-slate-700 text-sm font-semibold rounded-lg transition-colors">+ Add Subject</button>
         </div>
       </div>

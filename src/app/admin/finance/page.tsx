@@ -41,7 +41,7 @@ export default function FinancePage() {
           <h1 className="text-xl font-bold text-slate-900">Finance Overview</h1>
           <p className="text-sm text-slate-500 mt-0.5">Executive financial dashboard — 2nd Term, 2025/2026</p>
         </div>
-        <button className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold rounded-lg transition-colors shadow-sm">Export Report</button>
+        <button className="px-4 py-2 bg-brand-green hover:bg-brand-green-700 text-white text-sm font-semibold rounded-lg transition-colors shadow-sm">Export Report</button>
       </div>
 
       {/* Revenue Cards */}
@@ -76,7 +76,7 @@ export default function FinancePage() {
                 <div key={i} className="flex-1 flex flex-col items-center gap-1">
                   <span className="text-[10px] font-bold text-slate-700">{m.percent}%</span>
                   <div className="w-full bg-slate-100 rounded-t-md overflow-hidden" style={{ height: "100%" }}>
-                    <div className="w-full bg-gradient-to-t from-indigo-600 to-indigo-400 rounded-t-md transition-all" style={{ height: `${m.percent}%`, marginTop: `${100 - m.percent}%` }} />
+                    <div className="w-full bg-gradient-to-t from-brand-green to-brand-yellow-500 rounded-t-md transition-all" style={{ height: `${m.percent}%`, marginTop: `${100 - m.percent}%` }} />
                   </div>
                   <span className="text-[10px] text-slate-500 font-medium">{m.month}</span>
                 </div>
@@ -106,7 +106,7 @@ export default function FinancePage() {
       <div className="space-y-3">
         <div className="flex items-center justify-between">
           <h2 className="text-base font-bold text-slate-800">Fee Structure (Per Term)</h2>
-          <button className="text-sm text-indigo-600 font-semibold hover:underline">Edit Fees</button>
+          <button className="text-sm text-brand-green font-semibold hover:underline">Edit Fees</button>
         </div>
         <div className="bg-white rounded-xl border border-slate-200/60 overflow-hidden">
           <div className="overflow-x-auto">

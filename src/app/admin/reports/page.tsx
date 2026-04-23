@@ -36,7 +36,7 @@ export default function ReportsPage() {
           <h1 className="text-xl font-bold text-slate-900">Reports & Analytics</h1>
           <p className="text-sm text-slate-500 mt-0.5">Generate and export data reports across all modules</p>
         </div>
-        <button className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold rounded-lg transition-colors shadow-sm">Export All as PDF</button>
+        <button className="px-4 py-2 bg-brand-green hover:bg-brand-green-700 text-white text-sm font-semibold rounded-lg transition-colors shadow-sm">Export All as PDF</button>
       </div>
 
       {/* Report Cards */}
@@ -45,14 +45,14 @@ export default function ReportsPage() {
           <button
             key={r.name}
             onClick={() => setExpanded(expanded === r.name ? null : r.name)}
-            className={`text-left rounded-xl border p-5 hover:shadow-md transition-all ${r.color} ${expanded === r.name ? "ring-2 ring-indigo-200" : ""}`}
+            className={`text-left rounded-xl border p-5 hover:shadow-md transition-all ${r.color} ${expanded === r.name ? "ring-2 ring-brand-green-200" : ""}`}
           >
             <div className="flex items-center gap-3 mb-2">
               <span className="text-2xl">{r.icon}</span>
               <h3 className="text-sm font-bold text-slate-800">{r.name}</h3>
             </div>
             <p className="text-[11px] text-slate-600">{r.desc}</p>
-            <p className="text-[10px] text-indigo-600 font-semibold mt-3">Click to preview →</p>
+            <p className="text-[10px] text-brand-green font-semibold mt-3">Click to preview →</p>
           </button>
         ))}
       </div>
@@ -62,7 +62,7 @@ export default function ReportsPage() {
         <div className="bg-white rounded-xl border border-slate-200/60 overflow-hidden animate-fade-in-up">
           <div className="px-5 py-4 border-b border-slate-100 flex items-center justify-between">
             <h2 className="text-sm font-bold text-slate-800">Student Demographics — Enrollment by Level</h2>
-            <button className="text-xs text-indigo-600 font-semibold hover:underline">Export CSV</button>
+            <button className="text-xs text-brand-green font-semibold hover:underline">Export CSV</button>
           </div>
           <table className="w-full text-sm">
             <thead><tr className="bg-slate-50/80 text-slate-500 text-xs uppercase tracking-wider">
@@ -95,7 +95,7 @@ export default function ReportsPage() {
         <div className="bg-white rounded-xl border border-slate-200/60 overflow-hidden animate-fade-in-up">
           <div className="px-5 py-4 border-b border-slate-100 flex items-center justify-between">
             <h2 className="text-sm font-bold text-slate-800">Academic Performance — Subject Averages</h2>
-            <button className="text-xs text-indigo-600 font-semibold hover:underline">Export CSV</button>
+            <button className="text-xs text-brand-green font-semibold hover:underline">Export CSV</button>
           </div>
           <table className="w-full text-sm">
             <thead><tr className="bg-slate-50/80 text-slate-500 text-xs uppercase tracking-wider">
@@ -123,7 +123,7 @@ export default function ReportsPage() {
           <span className="text-4xl mb-3 block">{REPORTS.find((r) => r.name === expanded)?.icon}</span>
           <p className="text-sm font-semibold text-slate-700 mb-1">{expanded}</p>
           <p className="text-xs text-slate-500">Detailed report data will load from the database in the backend phase.</p>
-          <button className="mt-4 px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-semibold rounded-lg transition-colors">Export as PDF</button>
+          <button className="mt-4 px-4 py-2 bg-brand-green hover:bg-brand-green-700 text-white text-xs font-semibold rounded-lg transition-colors">Export as PDF</button>
         </div>
       )}
     </div>

@@ -26,8 +26,8 @@ export default function AdminOverviewPage() {
   return (
     <div className="p-4 sm:p-6 lg:p-8 max-w-[1400px] mx-auto space-y-6">
       {/* Welcome Banner */}
-      <div className="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 rounded-2xl p-6 sm:p-8 text-white relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-60 h-60 bg-indigo-500 rounded-full opacity-10 blur-3xl -translate-y-1/2 translate-x-1/3" />
+      <div className="bg-gradient-to-r from-slate-900 via-brand-green-800 to-slate-900 rounded-2xl p-6 sm:p-8 text-white relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-60 h-60 bg-brand-yellow rounded-full opacity-10 blur-3xl -translate-y-1/2 translate-x-1/3" />
         <div className="relative z-10">
           <div className="flex items-center gap-2 mb-2">
             <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${ADMIN_ROLE_COLORS[MOCK_ADMIN.role]}`}>
