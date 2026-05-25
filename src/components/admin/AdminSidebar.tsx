@@ -23,13 +23,12 @@ export function AdminSidebar({ isCollapsed, toggleSidebar, activeRole, onRoleCha
 
   return (
     <aside
-      className={`fixed inset-y-0 left-0 z-40 hidden lg:flex flex-col transition-[width] duration-300 ease-in-out ${
+      className={`fixed inset-y-0 left-0 z-40 hidden lg:flex flex-col transition-[width] duration-300 ease-in-out bg-brand-green-700 ${
         isCollapsed ? "w-[84px]" : "w-[270px]"
       }`}
-      style={{ background: "#0f2316" }}
     >
       {/* Logo / Header */}
-      <div className="flex items-center gap-3 px-5 py-5 border-b border-slate-800/60">
+      <div className="flex items-center gap-3 px-5 py-5 border-b border-white/10">
         <div className="w-10 h-10 rounded-xl bg-brand-green flex items-center justify-center text-white font-bold text-lg shadow-md shrink-0">
           G
         </div>
@@ -43,14 +42,14 @@ export function AdminSidebar({ isCollapsed, toggleSidebar, activeRole, onRoleCha
 
       {/* Role Switcher (Dev tool) */}
       {!isCollapsed && (
-        <div className="px-4 py-3 border-b border-slate-800/40">
-          <label className="text-[9px] font-bold text-slate-600 uppercase tracking-widest block mb-1.5">
+        <div className="px-4 py-3 border-b border-white/5">
+          <label className="text-[9px] font-bold text-brand-green-200/60 uppercase tracking-widest block mb-1.5">
             Role Preview
           </label>
           <select
             value={activeRole}
             onChange={(e) => onRoleChange(e.target.value as AdminRole)}
-            className="w-full text-xs px-2 py-1.5 bg-slate-800 text-slate-300 border border-slate-700 rounded-lg focus:outline-none focus:ring-1 focus:ring-brand-green-500"
+            className="w-full text-xs px-2 py-1.5 bg-brand-green-800 text-slate-100 border border-brand-green-600 rounded-lg focus:outline-none focus:ring-1 focus:ring-brand-yellow"
           >
             <option value="super_admin">Super Admin</option>
             <option value="admin">Admin</option>
@@ -63,11 +62,11 @@ export function AdminSidebar({ isCollapsed, toggleSidebar, activeRole, onRoleCha
         {navGroups.map((group) => (
           <div key={group.label} className="mb-1">
             {!isCollapsed && (
-              <p className="text-[9px] font-bold text-slate-600 uppercase tracking-widest px-3 pt-3 pb-1.5">
+              <p className="text-[9px] font-bold text-brand-green-200/60 uppercase tracking-widest px-3 pt-3 pb-1.5">
                 {group.label}
               </p>
             )}
-            {isCollapsed && <div className="h-px bg-slate-800 mx-2 my-2" />}
+            {isCollapsed && <div className="h-px bg-white/10 mx-2 my-2" />}
             {group.items.map((item) => {
               const isActive = pathname === item.href;
               return (
@@ -77,8 +76,8 @@ export function AdminSidebar({ isCollapsed, toggleSidebar, activeRole, onRoleCha
                   title={isCollapsed ? item.name : undefined}
                   className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 relative group ${
                     isActive
-                      ? "bg-brand-green-600/15 text-brand-yellow"
-                      : "text-slate-400 hover:text-white hover:bg-slate-800/60"
+                      ? "bg-white/10 text-brand-yellow font-semibold"
+                      : "text-brand-green-100 hover:text-white hover:bg-white/5"
                   }`}
                 >
                   {isActive && (
@@ -94,7 +93,7 @@ export function AdminSidebar({ isCollapsed, toggleSidebar, activeRole, onRoleCha
       </nav>
 
       {/* Admin Profile */}
-      <div className="border-t border-slate-800/60 px-4 py-4">
+      <div className="border-t border-white/10 px-4 py-4">
         {!isCollapsed ? (
           <div className="flex items-center gap-3">
             <div className="w-9 h-9 rounded-full bg-brand-green-600/20 border border-brand-green-500/30 text-brand-yellow text-xs font-bold flex items-center justify-center shrink-0">
@@ -119,7 +118,7 @@ export function AdminSidebar({ isCollapsed, toggleSidebar, activeRole, onRoleCha
       {/* Collapse Toggle */}
       <button
         onClick={toggleSidebar}
-        className="absolute -right-3 top-20 w-6 h-6 bg-slate-700 hover:bg-brand-green text-white rounded-full flex items-center justify-center shadow-md transition-colors border border-slate-600"
+        className="absolute -right-3 top-20 w-6 h-6 bg-brand-green-800 hover:bg-brand-green text-white rounded-full flex items-center justify-center shadow-md transition-colors border border-brand-green-600"
         aria-label={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
       >
         <svg className={`w-3 h-3 transition-transform ${isCollapsed ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">

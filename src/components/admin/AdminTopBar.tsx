@@ -61,9 +61,9 @@ export function AdminTopBar({ activeRole, onRoleChange }: AdminTopBarProps) {
       {mobileOpen && (
         <div className="lg:hidden fixed inset-0 z-50">
           <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm" onClick={() => setMobileOpen(false)} />
-          <div className="absolute inset-y-0 left-0 w-[280px] flex flex-col animate-fade-in-up" style={{ background: "#0f2316" }}>
+          <div className="absolute inset-y-0 left-0 w-[280px] flex flex-col animate-fade-in-up bg-brand-green-700">
             {/* Drawer header */}
-            <div className="flex items-center justify-between px-5 py-4 border-b border-slate-800/60">
+            <div className="flex items-center justify-between px-5 py-4 border-b border-white/10">
               <div className="flex items-center gap-2.5">
                 <div className="w-9 h-9 rounded-xl bg-brand-green flex items-center justify-center text-white font-bold text-sm">G</div>
                 <div>
@@ -73,7 +73,7 @@ export function AdminTopBar({ activeRole, onRoleChange }: AdminTopBarProps) {
               </div>
               <button
                 onClick={() => setMobileOpen(false)}
-                className="w-8 h-8 rounded-lg bg-slate-800 text-slate-400 hover:text-white flex items-center justify-center"
+                className="w-8 h-8 rounded-lg bg-brand-green-800 text-brand-green-100 hover:text-white flex items-center justify-center"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
@@ -82,11 +82,11 @@ export function AdminTopBar({ activeRole, onRoleChange }: AdminTopBarProps) {
             </div>
 
             {/* Role switcher */}
-            <div className="px-4 py-3 border-b border-slate-800/40">
+            <div className="px-4 py-3 border-b border-white/5">
               <select
                 value={activeRole}
                 onChange={(e) => onRoleChange(e.target.value as AdminRole)}
-                className="w-full text-xs px-2 py-1.5 bg-slate-800 text-slate-300 border border-slate-700 rounded-lg focus:outline-none"
+                className="w-full text-xs px-2 py-1.5 bg-brand-green-800 text-slate-100 border border-brand-green-600 rounded-lg focus:outline-none focus:ring-1 focus:ring-brand-yellow"
               >
                 <option value="super_admin">Super Admin</option>
                 <option value="admin">Admin</option>
@@ -102,10 +102,10 @@ export function AdminTopBar({ activeRole, onRoleChange }: AdminTopBarProps) {
                     key={item.href}
                     href={item.href}
                     onClick={() => setMobileOpen(false)}
-                    className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+                    className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 relative group ${
                       isActive
-                        ? "bg-brand-green-600/15 text-brand-yellow"
-                        : "text-slate-400 hover:text-white hover:bg-slate-800/60"
+                        ? "bg-white/10 text-brand-yellow font-semibold"
+                        : "text-brand-green-100 hover:text-white hover:bg-white/5"
                     }`}
                   >
                     <span className="text-base w-6 text-center">{item.icon}</span>
@@ -116,7 +116,7 @@ export function AdminTopBar({ activeRole, onRoleChange }: AdminTopBarProps) {
             </nav>
 
             {/* Profile */}
-            <div className="border-t border-slate-800/60 px-4 py-4 flex items-center gap-3">
+            <div className="border-t border-white/10 px-4 py-4 flex items-center gap-3">
               <div className="w-9 h-9 rounded-full bg-brand-green-600/20 border border-brand-green-500/30 text-brand-yellow text-xs font-bold flex items-center justify-center">
                 {MOCK_ADMIN.initials}
               </div>
