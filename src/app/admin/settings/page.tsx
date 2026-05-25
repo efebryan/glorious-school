@@ -99,7 +99,7 @@ export default function SettingsPage() {
                       <label className="text-xs font-medium text-slate-600 mb-1.5 block">{f.label}</label>
                       {f.type === "select" ? (
                         <select defaultValue={f.value} className="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg bg-slate-50 focus:bg-white focus:ring-2 focus:ring-brand-green-500/30 focus:outline-none">
-                          {f.options?.map(opt => <option key={opt}>{opt}</option>)}
+                          {"options" in f && (f.options as string[])?.map(opt => <option key={opt}>{opt}</option>)}
                         </select>
                       ) : (
                         <input type={f.type} defaultValue={f.value} className="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg bg-slate-50 focus:bg-white focus:ring-2 focus:ring-brand-green-500/30 focus:outline-none" />
