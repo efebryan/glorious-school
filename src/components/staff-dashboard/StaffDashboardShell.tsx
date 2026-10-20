@@ -23,7 +23,7 @@ export function StaffDashboardShell({
   const [activeRole, setActiveRole] = useState<StaffRole>("teacher");
 
   return (
-    <div className="min-h-screen bg-slate-100">
+    <div className="min-h-screen bg-[#f8fafc]">
       {/* Desktop Sidebar */}
       <StaffSidebar
         isCollapsed={isCollapsed}
