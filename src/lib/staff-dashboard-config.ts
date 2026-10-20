@@ -27,16 +27,16 @@ export interface StaffNavItem {
 const ALL_ROLES: StaffRole[] = ["principal", "vice_principal", "bursar", "teacher"];
 
 export const STAFF_NAV_ITEMS: StaffNavItem[] = [
-  { name: "Overview",       href: "/staff-dashboard/overview",       icon: "🏠", roles: ALL_ROLES },
-  { name: "Students",       href: "/staff-dashboard/students",       icon: "🎓", roles: ALL_ROLES },
-  { name: "Results",        href: "/staff-dashboard/results",        icon: "📝", roles: ["teacher", "principal"] },
-  { name: "Attendance",     href: "/staff-dashboard/attendance",     icon: "📋", roles: ["teacher", "vice_principal"] },
-  { name: "Fees & Finance", href: "/staff-dashboard/fees",           icon: "💰", roles: ["bursar"] },
-  { name: "Discipline",     href: "/staff-dashboard/discipline",     icon: "⚖️", roles: ["vice_principal"] },
-  { name: "Timetable",      href: "/staff-dashboard/timetable",      icon: "📅", roles: ALL_ROLES },
-  { name: "Announcements",  href: "/staff-dashboard/announcements",  icon: "📢", roles: ["principal", "vice_principal"] },
-  { name: "Messages",       href: "/staff-dashboard/messages",       icon: "💬", roles: ALL_ROLES },
-  { name: "My Profile",     href: "/staff-dashboard/profile",        icon: "👤", roles: ALL_ROLES },
+  { name: "Overview",          href: "/staff-dashboard/overview",       icon: "🏠", roles: ALL_ROLES },
+  { name: "Students",          href: "/staff-dashboard/students",       icon: "🎓", roles: ALL_ROLES },
+  { name: "Results & Grading", href: "/staff-dashboard/results",        icon: "📝", roles: ["teacher", "principal"] },
+  { name: "Attendance",        href: "/staff-dashboard/attendance",     icon: "📋", roles: ["teacher", "vice_principal"] },
+  { name: "Fees & Finance",    href: "/staff-dashboard/fees",           icon: "💰", roles: ["bursar"] },
+  { name: "Discipline",        href: "/staff-dashboard/discipline",     icon: "⚖️", roles: ["vice_principal"] },
+  { name: "Timetable",         href: "/staff-dashboard/timetable",      icon: "📅", roles: ALL_ROLES },
+  { name: "Announcements",     href: "/staff-dashboard/announcements",  icon: "📢", roles: ["principal", "vice_principal"] },
+  { name: "Messages",          href: "/staff-dashboard/messages",       icon: "💬", roles: ALL_ROLES },
+  { name: "My Profile",        href: "/staff-dashboard/profile",        icon: "👤", roles: ALL_ROLES },
 ];
 
 // Helper: filter nav items by role
@@ -63,8 +63,6 @@ export const MOCK_STAFF = {
   assignedSubjects: ["Physics", "Chemistry"],
   dateJoined: "September 1, 2021",
   session: "2026/2027",
-  term: "2nd Term",
-};
   term: "2nd Term",
   status: "Active" as const,
 };
