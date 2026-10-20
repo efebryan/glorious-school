@@ -3,14 +3,15 @@
 import Link from "next/link";
 import { MOCK_STUDENT } from "@/lib/dashboard-config";
 import { ProfilePhotoUpload } from "@/components/ui/ProfilePhotoUpload";
+import { NavIcon } from "@/components/ui/NavIcon";
 
 // --- Reusable sub-components scoped to this page ---
 
-function StatCard({ icon, color, label, value, sub }: { icon: string; color: string; label: string; value: string; sub: string }) {
+function StatCard({ iconName, color, label, value, sub }: { iconName: string; color: string; label: string; value: string; sub: string }) {
   return (
     <div className="bg-white rounded-xl border border-slate-200/60 p-4 sm:p-5 flex items-center gap-4 hover:shadow-md transition-shadow">
-      <div className={`w-11 h-11 rounded-xl flex items-center justify-center text-xl shrink-0 ${color}`}>
-        {icon}
+      <div className={`w-11 h-11 rounded-xl flex items-center justify-center shrink-0 ${color}`}>
+        <NavIcon name={iconName} className="w-5 h-5" />
       </div>
       <div className="min-w-0">
         <p className="text-xs text-slate-500 font-medium truncate">{label}</p>
@@ -83,10 +84,10 @@ export default function OverviewPage() {
 
       {/* Stats */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
-        <StatCard icon="🏫" color="bg-blue-50 text-blue-500" label="Current Term" value={MOCK_STUDENT.term} sub={`${MOCK_STUDENT.session} Session`} />
-        <StatCard icon="📈" color="bg-green-50 text-green-500" label="Attendance" value="94%" sub="2 days absent" />
-        <StatCard icon="🏆" color="bg-amber-50 text-amber-500" label="Last Term Avg." value="85.4%" sub="Position: 4th" />
-        <StatCard icon="💰" color="bg-emerald-50 text-emerald-500" label="Fees Balance" value="₦150k" sub="1 pending invoice" />
+        <StatCard iconName="term" color="bg-blue-50 text-blue-600" label="Current Term" value={MOCK_STUDENT.term} sub={`${MOCK_STUDENT.session} Session`} />
+        <StatCard iconName="chart" color="bg-green-50 text-green-600" label="Attendance" value="94%" sub="2 days absent" />
+        <StatCard iconName="trophy" color="bg-amber-50 text-amber-600" label="Last Term Avg." value="85.4%" sub="Position: 4th" />
+        <StatCard iconName="finance" color="bg-emerald-50 text-emerald-600" label="Fees Balance" value="₦150k" sub="1 pending invoice" />
       </div>
 
       {/* Main grid */}
