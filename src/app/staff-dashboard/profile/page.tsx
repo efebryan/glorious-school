@@ -31,10 +31,19 @@ export default function ProfilePage() {
                 <span className="text-xs text-slate-400">{MOCK_STAFF.staffId}</span>
               </div>
             </div>
-            <button className="inline-flex items-center gap-2 px-4 py-2 border border-slate-200 text-sm font-semibold text-slate-600 rounded-lg hover:bg-slate-50 transition-colors">
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" /></svg>
-              Edit Profile
-            </button>
+            <div className="flex items-center gap-2">
+              <ProfilePhotoUpload
+                initials={MOCK_STAFF.initials}
+                name={`${MOCK_STAFF.firstName} ${MOCK_STAFF.lastName}`}
+                size="sm"
+                className="[&>div:first-child]:hidden"
+                showUploadButton={true}
+              />
+              <button className="inline-flex items-center gap-2 px-4 py-2 border border-slate-200 text-sm font-semibold text-slate-600 rounded-lg hover:bg-slate-50 transition-colors">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" /></svg>
+                Edit Profile
+              </button>
+            </div>
           </div>
         </div>
       </div>
