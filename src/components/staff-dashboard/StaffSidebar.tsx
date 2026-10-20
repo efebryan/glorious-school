@@ -140,7 +140,10 @@ export function StaffSidebar({
               )}
 
               <div className="relative shrink-0 flex items-center justify-center">
-                <span className={isCollapsed ? "text-xl" : "text-base"}>{item.icon}</span>
+                <NavIcon
+                  name={item.name}
+                  className={`${isCollapsed ? "w-5 h-5" : "w-[18px] h-[18px]"} transition-transform duration-200 group-hover:scale-110`}
+                />
                 {item.name === "Messages" && STAFF_UNREAD_COUNT > 0 && (
                   <span
                     className={`absolute bg-red-500 text-white font-bold rounded-full flex items-center justify-center ring-2 ring-brand-green-700 ${
