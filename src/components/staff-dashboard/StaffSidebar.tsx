@@ -11,6 +11,7 @@ import {
   StaffRole,
 } from "@/lib/staff-dashboard-config";
 import { NavIcon } from "@/components/ui/NavIcon";
+import { ProfilePhotoUpload } from "@/components/ui/ProfilePhotoUpload";
 
 interface StaffSidebarProps {
   isCollapsed?: boolean;
@@ -179,9 +180,13 @@ export function StaffSidebar({
         {!isCollapsed && (
           <div className="mb-3 px-1">
             <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-full bg-brand-green-800 border border-brand-green-500 text-xs font-bold text-brand-yellow flex items-center justify-center">
-                {MOCK_STAFF.initials}
-              </div>
+              <ProfilePhotoUpload
+                initials={MOCK_STAFF.initials}
+                name={`${MOCK_STAFF.firstName} ${MOCK_STAFF.lastName}`}
+                size="sm"
+                editable={false}
+                showUploadButton={false}
+              />
               <div className="min-w-0 flex-1">
                 <p className="text-xs font-semibold text-white truncate">{MOCK_STAFF.firstName} {MOCK_STAFF.lastName}</p>
                 <span className={`inline-block text-[9px] font-bold px-1.5 py-0.5 rounded border mt-0.5 ${STAFF_ROLE_COLORS[activeRole]}`}>
