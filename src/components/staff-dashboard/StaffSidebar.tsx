@@ -158,8 +158,8 @@ export function StaffSidebar({
                     </span>
                   )}
                   {item.name === "Messages" && (
-                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-rose-500 text-white min-w-[18px] text-center">
-                      4
+                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-950/60 text-emerald-300 border border-emerald-500/20">
+                      2 new
                     </span>
                   )}
                 </div>
