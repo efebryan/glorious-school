@@ -1,25 +1,17 @@
 "use client";
 
-import { useState } from "react";
+import { useActionState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { Card, CardContent } from "@/components/ui/Card";
+import { signIn, type AuthState } from "@/lib/actions/auth";
 
 export default function LoginPage() {
-  const [formData, setFormData] = useState({ email: "", password: "" });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    // UI mock for form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      alert("This is a demo. Authentication will be connected in the backend phase.");
-    }, 1500);
-  };
+  const [state, formAction, isPending] = useActionState<AuthState | null, FormData>(
+    signIn,
+    null
+  );
 
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
@@ -33,21 +25,26 @@ export default function LoginPage() {
           Welcome back
         </h2>
         <p className="mt-2 text-center text-sm text-slate-600">
-          Sign in to access the parent/student portal
+          Sign in to access your Glorious portal
         </p>
       </div>
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
         <Card className="shadow-lg border-none py-8 px-4 sm:px-10 bg-white">
           <CardContent className="p-0">
-            <form className="space-y-6" onSubmit={handleSubmit}>
+            <form className="space-y-6" action={formAction}>
+              {state?.error && (
+                <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-xl text-sm flex items-center gap-2">
+                  <span>⚠️</span>
+                  <span>{state.error}</span>
+                </div>
+              )}
+
               <Input 
                 type="email"
                 label="Email address" 
                 name="email"
                 placeholder="parent@example.com"
-                value={formData.email}
-                onChange={(e) => setFormData({...formData, email: e.target.value})}
                 required 
               />
               
@@ -57,8 +54,6 @@ export default function LoginPage() {
                   label="Password" 
                   name="password"
                   placeholder="••••••••"
-                  value={formData.password}
-                  onChange={(e) => setFormData({...formData, password: e.target.value})}
                   required 
                 />
                 <div className="flex items-center justify-end mt-2">
@@ -74,9 +69,9 @@ export default function LoginPage() {
                 type="submit" 
                 className="w-full font-bold text-base" 
                 size="lg"
-                disabled={isSubmitting}
+                disabled={isPending}
               >
-                {isSubmitting ? (
+                {isPending ? (
                   <span className="flex items-center justify-center gap-2">
                     <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none"/><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/></svg>
                     Signing in...
@@ -86,7 +81,7 @@ export default function LoginPage() {
             </form>
 
             <div className="mt-6 text-center text-sm">
-              <span className="text-slate-600">Don't have an account? </span>
+              <span className="text-slate-600">Don&apos;t have an account? </span>
               <Link href="/signup" className="font-semibold text-brand-green hover:text-brand-green-700">
                 Sign up
               </Link>
@@ -94,11 +89,6 @@ export default function LoginPage() {
             
             <div className="mt-6 border-t border-slate-100 pt-6 text-center text-xs text-slate-500 space-y-2">
               <p>For Result Checking, please use the <Link href="/result-checker" className="text-brand-yellow-600 font-medium hover:underline">Result Checker Portal</Link>.</p>
-              <div className="flex items-center justify-center gap-3">
-                <p>Staff members? Access the <Link href="/staff-dashboard/overview" className="text-brand-green font-medium hover:underline">Staff Portal</Link>.</p>
-                <span className="text-slate-300">|</span>
-                <Link href="/admin/overview" className="text-brand-green font-medium hover:underline">Admin Panel</Link>
-              </div>
             </div>
           </CardContent>
         </Card>
