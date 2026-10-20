@@ -1,6 +1,7 @@
 "use client";
 
 import { MOCK_STUDENT } from "@/lib/dashboard-config";
+import { ProfilePhotoUpload } from "@/components/ui/ProfilePhotoUpload";
 
 function InfoField({ label, value, accent }: { label: string; value: string; accent?: boolean }) {
   return (
@@ -24,17 +25,20 @@ export default function ProfilePage() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Left — Avatar card */}
         <div className="lg:col-span-1">
-          <div className="bg-white rounded-xl border border-slate-200/60 overflow-hidden text-center">
+          <div className="bg-white rounded-xl border border-slate-200/60 overflow-hidden text-center shadow-sm">
             {/* Banner */}
-            <div className="h-20 bg-gradient-to-br from-brand-green-600 to-brand-green relative">
-              <div className="absolute -bottom-8 left-1/2 -translate-x-1/2">
-                <div className="w-16 h-16 rounded-full bg-brand-green-50 border-[3px] border-white flex items-center justify-center text-xl font-bold text-brand-green shadow-md">
-                  {student.initials}
-                </div>
+            <div className="h-20 bg-gradient-to-br from-brand-green-700 to-brand-green relative">
+              <div className="absolute -bottom-10 left-1/2 -translate-x-1/2">
+                <ProfilePhotoUpload
+                  initials={student.initials}
+                  name={`${student.firstName} ${student.lastName}`}
+                  size="lg"
+                  showUploadButton={false}
+                />
               </div>
             </div>
             {/* Body */}
-            <div className="pt-12 pb-6 px-5">
+            <div className="pt-14 pb-6 px-5">
               <h2 className="text-lg font-bold text-slate-900">{student.firstName} {student.lastName}</h2>
               <p className="text-xs font-semibold text-brand-green mt-0.5">{student.admissionNo}</p>
               <div className="flex items-center justify-center gap-2 mt-3">
@@ -45,10 +49,14 @@ export default function ProfilePage() {
                   {student.status}
                 </span>
               </div>
-              <div className="mt-6 pt-5 border-t border-slate-100">
-                <button className="w-full text-sm font-semibold text-slate-600 hover:text-slate-900 border border-slate-200 hover:border-slate-300 rounded-lg py-2.5 transition-colors">
-                  Request Photo Update
-                </button>
+              <div className="mt-5 pt-4 border-t border-slate-100">
+                <ProfilePhotoUpload
+                  initials={student.initials}
+                  name={`${student.firstName} ${student.lastName}`}
+                  size="sm"
+                  className="[&>div:first-child]:hidden"
+                  showUploadButton={true}
+                />
               </div>
             </div>
           </div>

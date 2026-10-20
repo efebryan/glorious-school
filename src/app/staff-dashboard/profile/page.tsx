@@ -1,6 +1,7 @@
 "use client";
 
 import { MOCK_STAFF, STAFF_ROLE_LABELS, STAFF_ROLE_COLORS } from "@/lib/staff-dashboard-config";
+import { ProfilePhotoUpload } from "@/components/ui/ProfilePhotoUpload";
 
 export default function ProfilePage() {
   return (
@@ -8,12 +9,15 @@ export default function ProfilePage() {
       <h1 className="text-xl font-bold text-slate-900">My Profile</h1>
 
       {/* Profile Card */}
-      <div className="bg-white rounded-xl border border-slate-200/60 overflow-hidden">
+      <div className="bg-white rounded-xl border border-slate-200/60 overflow-hidden shadow-sm">
         <div className="bg-gradient-to-r from-brand-green-700 to-brand-green h-24 relative">
           <div className="absolute -bottom-10 left-6">
-            <div className="w-20 h-20 rounded-2xl bg-white border-4 border-white shadow-lg flex items-center justify-center text-2xl font-bold text-brand-green">
-              {MOCK_STAFF.initials}
-            </div>
+            <ProfilePhotoUpload
+              initials={MOCK_STAFF.initials}
+              name={`${MOCK_STAFF.firstName} ${MOCK_STAFF.lastName}`}
+              size="lg"
+              showUploadButton={false}
+            />
           </div>
         </div>
         <div className="pt-14 pb-5 px-6">
