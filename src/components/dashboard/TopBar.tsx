@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { NAV_ITEMS, MOCK_STUDENT, UNREAD_COUNT } from "@/lib/dashboard-config";
 import { NotificationDropdown } from "@/components/dashboard/NotificationDropdown";
+import { NavIcon } from "@/components/ui/NavIcon";
 
 export function TopBar() {
   const [open, setOpen] = useState(false);
@@ -108,7 +109,7 @@ export function TopBar() {
                   {isActive && (
                     <span className="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-5 bg-brand-yellow rounded-r-full" />
                   )}
-                  <span className="text-lg">{item.icon}</span>
+                  <NavIcon name={item.name} className="w-5 h-5 shrink-0" />
                   <span>{item.name}</span>
                   {item.name === "Notifications" && UNREAD_COUNT > 0 && (
                     <span className="ml-auto bg-red-500 text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center">
