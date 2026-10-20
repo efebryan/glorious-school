@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { PARENT_NAV_ITEMS, MOCK_PARENT, PARENT_UNREAD_COUNT } from "@/lib/parent-dashboard-config";
 import { ParentNotificationDropdown } from "@/components/parent-dashboard/ParentNotificationDropdown";
+import { NavIcon } from "@/components/ui/NavIcon";
 
 export function ParentTopBar() {
   const [open, setOpen] = useState(false);
