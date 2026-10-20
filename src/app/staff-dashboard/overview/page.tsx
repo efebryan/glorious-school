@@ -87,10 +87,10 @@ export default function StaffOverviewPage() {
 
       {/* Stats */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
-        <StatCard icon="🎓" color="bg-blue-50 text-blue-500" label="Total Students" value="342" sub="Across assigned classes" />
-        <StatCard icon="📝" color="bg-amber-50 text-amber-500" label="Pending Results" value="5" sub="Awaiting entry or approval" />
-        <StatCard icon="📋" color="bg-green-50 text-green-500" label="Attendance Today" value="91%" sub="312 present, 30 absent" />
-        <StatCard icon="💰" color="bg-emerald-50 text-emerald-500" label="Fee Collection" value="₦4.2M" sub="82% collected this term" />
+        <StatCard iconName="students" color="bg-blue-50 text-blue-600" label="Total Students" value="342" sub="Across assigned classes" />
+        <StatCard iconName="results" color="bg-amber-50 text-amber-600" label="Pending Results" value="5" sub="Awaiting entry or approval" />
+        <StatCard iconName="attendance" color="bg-green-50 text-green-600" label="Attendance Today" value="91%" sub="312 present, 30 absent" />
+        <StatCard iconName="finance" color="bg-emerald-50 text-emerald-600" label="Fee Collection" value="₦4.2M" sub="82% collected this term" />
       </div>
 
       {/* Main grid */}
@@ -107,8 +107,8 @@ export default function StaffOverviewPage() {
                   href={a.href}
                   className={`flex items-center gap-3 p-4 rounded-xl border bg-white hover:shadow-md transition-all group`}
                 >
-                  <div className={`w-10 h-10 rounded-lg flex items-center justify-center text-lg shrink-0 border ${a.color}`}>
-                    {a.icon}
+                  <div className={`w-10 h-10 rounded-lg flex items-center justify-center shrink-0 border ${a.color}`}>
+                    <NavIcon name={a.iconName} className="w-5 h-5" />
                   </div>
                   <span className="text-sm font-semibold text-slate-700 group-hover:text-slate-900">{a.label}</span>
                 </Link>
@@ -122,8 +122,8 @@ export default function StaffOverviewPage() {
             <div className="bg-white rounded-xl border border-slate-200/60 divide-y divide-slate-100">
               {recentActivity.map((act, i) => (
                 <div key={i} className="px-4 sm:px-5 py-3.5 flex items-center gap-3 hover:bg-slate-50/50 transition-colors">
-                  <div className="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-sm shrink-0">
-                    {act.icon}
+                  <div className="w-8 h-8 rounded-lg bg-slate-100 text-slate-600 flex items-center justify-center shrink-0">
+                    <NavIcon name={act.iconName} className="w-4 h-4" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <p className="text-sm font-medium text-slate-700 truncate">{act.action}</p>
