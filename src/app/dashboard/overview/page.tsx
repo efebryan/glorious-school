@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { MOCK_STUDENT } from "@/lib/dashboard-config";
+import { ProfilePhotoUpload } from "@/components/ui/ProfilePhotoUpload";
 
 // --- Reusable sub-components scoped to this page ---
 
