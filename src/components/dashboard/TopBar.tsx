@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { NAV_ITEMS, MOCK_STUDENT, UNREAD_COUNT } from "@/lib/dashboard-config";
 import { NotificationDropdown } from "@/components/dashboard/NotificationDropdown";
 import { NavIcon } from "@/components/ui/NavIcon";
+import { ProfilePhotoUpload } from "@/components/ui/ProfilePhotoUpload";
 
 export function TopBar() {
   const [open, setOpen] = useState(false);
@@ -46,8 +47,14 @@ export function TopBar() {
 
           <div className="flex items-center gap-2">
             <NotificationDropdown />
-            <Link href="/dashboard/profile" className="w-8 h-8 rounded-full bg-brand-green/10 border border-brand-green/20 text-xs font-bold text-brand-green flex items-center justify-center">
-              {MOCK_STUDENT.initials}
+            <Link href="/dashboard/profile" className="flex items-center" title="My Profile">
+              <ProfilePhotoUpload
+                initials={MOCK_STUDENT.initials}
+                name={`${MOCK_STUDENT.firstName} ${MOCK_STUDENT.lastName}`}
+                size="sm"
+                editable={false}
+                showUploadButton={false}
+              />
             </Link>
           </div>
         </div>
