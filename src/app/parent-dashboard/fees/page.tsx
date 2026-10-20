@@ -1,6 +1,7 @@
 "use client";
 
 import { MOCK_PARENT } from "@/lib/parent-dashboard-config";
+import { NavIcon } from "@/components/ui/NavIcon";
 
 const PAYMENT_HISTORY = [
   { id: "PAY-001", date: "Jan 15, 2026", amount: 250000, ward: "John Doe", method: "Bank Transfer", status: "Confirmed" },
@@ -24,8 +25,8 @@ export default function ParentFeesPage() {
       {/* Summary cards */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <div className="bg-white rounded-xl border border-slate-200/60 p-6 flex flex-col items-center justify-center text-center">
-          <div className="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center text-2xl mb-3">
-            💰
+          <div className="w-12 h-12 bg-red-50 text-red-600 rounded-xl flex items-center justify-center mb-3">
+            <NavIcon name="finance" className="w-6 h-6" />
           </div>
           <p className="text-sm font-medium text-slate-500 mb-1">Total Outstanding</p>
           <p className={`text-3xl font-bold ${totalOutstanding > 0 ? "text-red-500" : "text-brand-green"}`}>
@@ -39,8 +40,8 @@ export default function ParentFeesPage() {
         </div>
 
         <div className="bg-white rounded-xl border border-slate-200/60 p-6 flex flex-col items-center justify-center text-center">
-          <div className="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center text-2xl mb-3">
-            ✅
+          <div className="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center mb-3">
+            <NavIcon name="approved" className="w-6 h-6" />
           </div>
           <p className="text-sm font-medium text-slate-500 mb-1">Total Paid (This Session)</p>
           <p className="text-3xl font-bold text-brand-green">
@@ -50,8 +51,8 @@ export default function ParentFeesPage() {
         </div>
 
         <div className="bg-white rounded-xl border border-slate-200/60 p-6 flex flex-col items-center justify-center text-center">
-          <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-2xl mb-3">
-            👨‍👩‍👧‍👦
+          <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-3">
+            <NavIcon name="students" className="w-6 h-6" />
           </div>
           <p className="text-sm font-medium text-slate-500 mb-1">Wards Enrolled</p>
           <p className="text-3xl font-bold text-slate-900">
