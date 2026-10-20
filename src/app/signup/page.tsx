@@ -35,7 +35,11 @@ export default function SignupPage() {
           <CardContent className="p-0">
             {state?.success ? (
               <div className="bg-brand-green-50 border border-brand-green-200 text-brand-green-800 p-6 rounded-xl text-center space-y-4">
-                <div className="text-4xl">✉️</div>
+                <div className="w-14 h-14 mx-auto rounded-full bg-brand-green-100 flex items-center justify-center text-brand-green">
+                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
                 <h3 className="text-xl font-bold">Account Created!</h3>
                 <p className="text-sm text-slate-600">
                   Your registration with Glorious Group of Schools is successful. If email confirmation is enabled, please verify your email address to log in.
@@ -53,7 +57,9 @@ export default function SignupPage() {
               <form className="space-y-5" action={formAction}>
                 {state?.error && (
                   <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-xl text-sm flex items-center gap-2">
-                    <span>⚠️</span>
+                    <svg className="w-5 h-5 shrink-0 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                    </svg>
                     <span>{state.error}</span>
                   </div>
                 )}
