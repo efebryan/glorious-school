@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { ConditionalWrapper } from "@/components/layout/ConditionalWrapper";
+import { ProfilePhotoProvider } from "@/context/ProfilePhotoContext";
 import "./globals.css";
 
 const inter = Inter({
@@ -25,9 +26,11 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col">
-        <ConditionalWrapper>
-          {children}
-        </ConditionalWrapper>
+        <ProfilePhotoProvider>
+          <ConditionalWrapper>
+            {children}
+          </ConditionalWrapper>
+        </ProfilePhotoProvider>
       </body>
     </html>
   );
