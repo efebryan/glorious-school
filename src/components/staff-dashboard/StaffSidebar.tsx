@@ -10,6 +10,7 @@ import {
   STAFF_ROLE_COLORS,
   StaffRole,
 } from "@/lib/staff-dashboard-config";
+import { NavIcon } from "@/components/ui/NavIcon";
 
 interface StaffSidebarProps {
   isCollapsed?: boolean;
