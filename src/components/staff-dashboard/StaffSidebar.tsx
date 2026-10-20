@@ -121,10 +121,10 @@ export function StaffSidebar({
               key={item.name}
               href={item.href}
               title={isCollapsed ? item.name : undefined}
-              className={`group flex items-center rounded-lg transition-all duration-200 relative ${
+              className={`group flex items-center rounded-xl transition-all duration-200 relative ${
                 isCollapsed
                   ? "justify-center h-12 w-12 mx-auto"
-                  : "gap-3 px-3 py-2.5 text-[13px]"
+                  : "gap-3.5 px-3.5 py-2.5 text-[14.5px] font-medium"
               } ${
                 isActive
                   ? "bg-white/15 text-white font-semibold shadow-inner"
@@ -142,7 +142,7 @@ export function StaffSidebar({
               <div className="relative shrink-0 flex items-center justify-center">
                 <NavIcon
                   name={item.name}
-                  className={`${isCollapsed ? "w-5 h-5" : "w-[18px] h-[18px]"} transition-transform duration-200 group-hover:scale-110`}
+                  className={`${isCollapsed ? "w-6 h-6" : "w-[21px] h-[21px]"} transition-transform duration-200 group-hover:scale-110`}
                 />
                 {item.name === "Messages" && STAFF_UNREAD_COUNT > 0 && (
                   <span
