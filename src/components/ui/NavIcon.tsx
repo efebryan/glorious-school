@@ -35,6 +35,7 @@ export function NavIcon({ name, className = "w-5 h-5" }: NavIconProps) {
 
     // Results / My Results / Results Oversight / Scores / Grades
     case "results":
+    case "results & grading":
     case "my results":
     case "results oversight":
     case "result":

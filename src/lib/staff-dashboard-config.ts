@@ -46,18 +46,25 @@ export function getNavForRole(role: StaffRole): StaffNavItem[] {
 
 // Mock staff data — will be replaced by Supabase query later
 export const MOCK_STAFF = {
-  firstName: "Mrs. Adaeze",
+  title: "Mrs.",
+  firstName: "Adaeze",
   lastName: "Okonkwo",
+  fullName: "Mrs. Adaeze Okonkwo",
+  displayName: "Mrs. Adaeze",
   initials: "AO",
   staffId: "GGS/STF/2021/003",
   role: "teacher" as StaffRole,
-  department: "Science",
+  department: "Senior Science Department",
+  specialization: "Physics & Chemistry",
+  designation: "Senior Teacher",
   email: "adaeze.okonkwo@gloriousschools.edu.ng",
   phone: "+234 812 345 6789",
   assignedClasses: ["SS 1", "SS 2"],
-  assignedSubjects: ["Physics", "Mathematics"],
+  assignedSubjects: ["Physics", "Chemistry"],
   dateJoined: "September 1, 2021",
   session: "2026/2027",
+  term: "2nd Term",
+};
   term: "2nd Term",
   status: "Active" as const,
 };
