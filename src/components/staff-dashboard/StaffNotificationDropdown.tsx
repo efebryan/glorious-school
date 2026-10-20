@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { STAFF_UNREAD_COUNT } from "@/lib/staff-dashboard-config";
+import { NavIcon } from "@/components/ui/NavIcon";
 
 const NOTIFICATIONS = [
   {
@@ -102,8 +103,8 @@ export function StaffNotificationDropdown() {
                   !n.read ? "bg-brand-green-50/30" : ""
                 }`}
               >
-                <div className="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-sm shrink-0">
-                  {TYPE_ICONS[n.type] ?? "🔔"}
+                <div className="w-8 h-8 rounded-lg bg-brand-green/10 text-brand-green flex items-center justify-center shrink-0">
+                  <NavIcon name={n.type} className="w-4 h-4" />
                 </div>
                 <div className="min-w-0 flex-1">
                   <p className={`text-sm truncate ${!n.read ? "font-semibold text-slate-800" : "font-medium text-slate-600"}`}>
