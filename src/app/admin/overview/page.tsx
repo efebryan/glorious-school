@@ -62,7 +62,9 @@ export default function AdminOverviewPage() {
           <div className="bg-white rounded-xl border border-slate-200/60 divide-y divide-slate-100">
             {MOCK_AUDIT_LOG.map((log) => (
               <div key={log.id} className="px-5 py-3.5 flex items-start gap-3">
-                <span className="text-base mt-0.5">{AUDIT_ICONS[log.type] ?? "📋"}</span>
+                <div className="w-7 h-7 rounded-lg bg-slate-100 text-slate-600 flex items-center justify-center shrink-0 mt-0.5">
+                  <NavIcon name={log.type} className="w-4 h-4" />
+                </div>
                 <div className="min-w-0 flex-1">
                   <p className="text-sm text-slate-700">
                     <span className="font-semibold">{log.actor}</span> {log.action}
@@ -86,7 +88,7 @@ export default function AdminOverviewPage() {
                   href={a.href}
                   className={`flex flex-col items-center gap-1.5 px-3 py-3.5 rounded-xl border text-center hover:shadow-md transition-all hover:-translate-y-0.5 ${a.color}`}
                 >
-                  <span className="text-xl">{a.icon}</span>
+                  <NavIcon name={a.iconName} className="w-5 h-5" />
                   <span className="text-[11px] font-semibold leading-tight">{a.label}</span>
                 </Link>
               ))}
