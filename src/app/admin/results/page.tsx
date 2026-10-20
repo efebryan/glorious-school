@@ -85,7 +85,10 @@ export default function ResultsPage() {
                       const d = STATUS_DISPLAY[st];
                       return (
                         <td key={j} className={`px-3 py-3 text-center ${d.bg}`}>
-                          <span className="text-base">{d.icon}</span>
+                          <span className="inline-flex items-center gap-1.5 text-xs font-semibold">
+                            <span className={`w-2 h-2 rounded-full ${d.dot}`} />
+                            <span className="hidden sm:inline">{d.label}</span>
+                          </span>
                         </td>
                       );
                     })}
@@ -96,11 +99,11 @@ export default function ResultsPage() {
           </div>
         </div>
         <div className="flex flex-wrap gap-4 text-xs text-slate-500">
-          <span className="flex items-center gap-1">✅ Approved</span>
-          <span className="flex items-center gap-1">🟠 Pending Review</span>
-          <span className="flex items-center gap-1">🟡 Draft</span>
-          <span className="flex items-center gap-1">🔴 Not Started</span>
-          <span className="flex items-center gap-1">— N/A</span>
+          <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-emerald-500" /> Approved</span>
+          <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-orange-500" /> Pending Review</span>
+          <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-amber-400" /> Draft</span>
+          <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-red-500" /> Not Started</span>
+          <span className="flex items-center gap-1.5">— N/A</span>
         </div>
       </div>
 
