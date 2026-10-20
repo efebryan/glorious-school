@@ -46,12 +46,14 @@ const NOTIFICATIONS = [
   },
 ];
 
-const TYPE_ICONS: Record<string, string> = {
-  results: "📝",
-  users: "👤",
-  finance: "💰",
-  system: "⚠️",
-  cms: "🌐",
+import { NavIcon } from "@/components/ui/NavIcon";
+
+const TYPE_MAP: Record<string, string> = {
+  results: "results",
+  users: "users",
+  finance: "finance",
+  system: "settings",
+  cms: "cms",
 };
 
 export function AdminNotificationDropdown() {
@@ -102,8 +104,8 @@ export function AdminNotificationDropdown() {
                   !n.read ? "bg-brand-green-50/30" : ""
                 }`}
               >
-                <div className="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-sm shrink-0 shadow-sm border border-slate-200/50">
-                  {TYPE_ICONS[n.type] ?? "🔔"}
+                <div className="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-600 shrink-0 shadow-sm border border-slate-200/50">
+                  <NavIcon name={TYPE_MAP[n.type] ?? "bell"} className="w-4 h-4 text-slate-600" />
                 </div>
                 <div className="min-w-0 flex-1">
                   <p className={`text-sm truncate ${!n.read ? "font-semibold text-slate-800" : "font-medium text-slate-600"}`}>
