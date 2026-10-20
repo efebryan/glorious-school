@@ -10,6 +10,7 @@ import {
   STAFF_ROLE_LABELS,
   STAFF_ROLE_COLORS,
   StaffRole,
+} from "@/lib/staff-dashboard-config";
 import { StaffNotificationDropdown } from "@/components/staff-dashboard/StaffNotificationDropdown";
 import { NavIcon } from "@/components/ui/NavIcon";
 
