@@ -123,7 +123,9 @@ export default function ReportsPage() {
 
       {expanded && !["Student Demographics", "Academic Performance"].includes(expanded) && (
         <div className="bg-white rounded-xl border border-slate-200/60 p-8 text-center animate-fade-in-up">
-          <span className="text-4xl mb-3 block">{REPORTS.find((r) => r.name === expanded)?.icon}</span>
+          <div className="w-12 h-12 mx-auto mb-3 rounded-xl bg-brand-green-50 text-brand-green flex items-center justify-center">
+            <NavIcon name={REPORTS.find((r) => r.name === expanded)?.iconName ?? "reports"} className="w-6 h-6" />
+          </div>
           <p className="text-sm font-semibold text-slate-700 mb-1">{expanded}</p>
           <p className="text-xs text-slate-500">Detailed report data will load from the database in the backend phase.</p>
           <button className="mt-4 px-4 py-2 bg-brand-green hover:bg-brand-green-700 text-white text-xs font-semibold rounded-lg transition-colors">Export as PDF</button>
