@@ -1,11 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import { NavIcon } from "@/components/ui/NavIcon";
 
 const SETTINGS_SECTIONS = [
   {
     title: "School Profile",
-    icon: "🏫",
+    iconName: "school",
     desc: "Update school name, motto, logo, and core contact details",
     fields: [
       { label: "School Name", value: "Glorious Group of Schools", type: "text" },
@@ -18,7 +19,7 @@ const SETTINGS_SECTIONS = [
   },
   {
     title: "Academic Configurations",
-    icon: "🎓",
+    iconName: "academics",
     desc: "Set grading scales, attendance thresholds, and report card formats",
     fields: [
       { label: "Default Grading System", value: "WAEC Standard (A1-F9)", type: "select", options: ["WAEC Standard (A1-F9)", "Letter Grades (A-F)", "Percentage (0-100)"] },
@@ -28,7 +29,7 @@ const SETTINGS_SECTIONS = [
   },
   {
     title: "Portal Access & Maintenance",
-    icon: "🌐",
+    iconName: "web",
     desc: "Enable or disable access to specific portals",
     toggles: [
       { label: "Student Portal Status", active: true },
@@ -39,7 +40,7 @@ const SETTINGS_SECTIONS = [
   },
   {
     title: "Notifications & SMS",
-    icon: "📱",
+    iconName: "notifications",
     desc: "Configure API keys for SMS gateway and automated email triggers",
     fields: [
       { label: "SMS Provider API Key", value: "sk_live_xxxxxxxxx", type: "password" },
@@ -52,7 +53,7 @@ const SETTINGS_SECTIONS = [
   },
   {
     title: "Database Backup",
-    icon: "💾",
+    iconName: "settings",
     desc: "Manage automated backups and data retention policies",
     fields: [
       { label: "Backup Frequency", value: "Daily", type: "select", options: ["Daily", "Weekly", "Monthly"] },
@@ -78,7 +79,9 @@ export default function SettingsPage() {
             {/* Header */}
             <div className="bg-slate-50/50 px-5 py-4 border-b border-slate-200/60 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <div className="flex items-center gap-3">
-                <span className="text-2xl">{section.icon}</span>
+                <div className="w-10 h-10 rounded-xl bg-white border border-slate-200/80 flex items-center justify-center shrink-0 text-slate-700 shadow-xs">
+                  <NavIcon name={section.iconName} className="w-5 h-5" />
+                </div>
                 <div>
                   <h2 className="text-sm font-bold text-slate-800">{section.title}</h2>
                   <p className="text-xs text-slate-500 mt-0.5">{section.desc}</p>
