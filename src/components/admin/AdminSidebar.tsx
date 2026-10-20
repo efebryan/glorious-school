@@ -75,7 +75,7 @@ export function AdminSidebar({ isCollapsed, toggleSidebar, activeRole, onRoleCha
                   key={item.href}
                   href={item.href}
                   title={isCollapsed ? item.name : undefined}
-                  className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 relative group ${
+                  className={`flex items-center gap-3.5 px-3.5 py-2.5 rounded-xl text-[14.5px] font-medium transition-all duration-200 relative group ${
                     isActive
                       ? "bg-white/10 text-brand-yellow font-semibold"
                       : "text-brand-green-100 hover:text-white hover:bg-white/5"
@@ -84,7 +84,7 @@ export function AdminSidebar({ isCollapsed, toggleSidebar, activeRole, onRoleCha
                   {isActive && (
                     <span className="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-5 bg-brand-yellow rounded-r-full" />
                   )}
-                  <NavIcon name={item.name} className="w-[18px] h-[18px] shrink-0" />
+                  <NavIcon name={item.name} className="w-[21px] h-[21px] shrink-0 transition-transform duration-200 group-hover:scale-110" />
                   {!isCollapsed && <span className="truncate">{item.name}</span>}
                 </Link>
               );
