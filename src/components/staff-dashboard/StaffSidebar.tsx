@@ -29,7 +29,7 @@ export function StaffSidebar({
 
   return (
     <aside
-      className={`hidden lg:flex flex-col bg-[#0f2316] text-slate-300 fixed inset-y-0 left-0 z-30 transition-[width] duration-300 ease-in-out ${
+      className={`hidden lg:flex flex-col bg-brand-green-700 text-slate-100 fixed inset-y-0 left-0 z-30 transition-[width] duration-300 ease-in-out shadow-xl ${
         isCollapsed ? "w-[84px]" : "w-[260px]"
       }`}
     >
@@ -37,7 +37,7 @@ export function StaffSidebar({
       {toggleSidebar && (
         <button
           onClick={toggleSidebar}
-          className="absolute -right-3.5 top-6 w-7 h-7 bg-brand-green border-[3px] border-slate-100 text-white rounded-full flex items-center justify-center shadow-sm z-40 transition-transform duration-300 hover:bg-brand-green-700 hover:scale-110"
+          className="absolute -right-3.5 top-6 w-7 h-7 bg-brand-green-800 border-[3px] border-slate-100 text-white rounded-full flex items-center justify-center shadow-md z-40 transition-transform duration-300 hover:bg-brand-green-600 hover:scale-110"
           style={{ transform: isCollapsed ? "rotate(180deg)" : "rotate(0deg)" }}
           aria-label={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
         >
@@ -49,12 +49,12 @@ export function StaffSidebar({
 
       {/* Logo */}
       <div
-        className={`h-16 flex items-center border-b border-white/[.08] shrink-0 overflow-hidden ${
+        className={`h-16 flex items-center border-b border-white/10 shrink-0 overflow-hidden ${
           isCollapsed ? "justify-center px-0" : "px-5"
         }`}
       >
         <Link href="/staff-dashboard/overview" className="flex items-center gap-2.5 w-full">
-          <div className="w-9 h-9 bg-brand-green rounded-lg flex items-center justify-center text-white font-bold text-base shadow-lg shrink-0 mx-auto lg:mx-0">
+          <div className="w-9 h-9 bg-white text-brand-green-700 rounded-lg flex items-center justify-center font-bold text-base shadow-md shrink-0 mx-auto lg:mx-0">
             G
           </div>
           <div
@@ -63,7 +63,7 @@ export function StaffSidebar({
             }`}
           >
             <span className="font-bold text-[15px] text-white">Glorious Portal</span>
-            <span className="text-[10px] text-white/40 font-medium tracking-wider uppercase">
+            <span className="text-[10px] text-brand-yellow font-semibold tracking-wider uppercase">
               Staff
             </span>
           </div>
@@ -73,24 +73,24 @@ export function StaffSidebar({
       {/* Role Switcher (dev tool) */}
       {!isCollapsed && (
         <div className="px-4 pt-4 pb-2">
-          <p className="text-[10px] font-semibold text-white/30 uppercase tracking-[0.15em] mb-2">
+          <p className="text-[10px] font-semibold text-brand-green-200/70 uppercase tracking-[0.15em] mb-2">
             Role Preview
           </p>
           <select
             value={activeRole}
             onChange={(e) => onRoleChange(e.target.value as StaffRole)}
-            className="w-full text-xs bg-white/[.06] border border-white/[.12] text-white/80 rounded-lg px-2.5 py-2 focus:outline-none focus:ring-1 focus:ring-brand-green/50 cursor-pointer appearance-none"
+            className="w-full text-xs bg-brand-green-800/90 border border-brand-green-600 text-white rounded-lg px-2.5 py-2 focus:outline-none focus:ring-1 focus:ring-brand-yellow cursor-pointer appearance-none"
             style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='rgba(255,255,255,0.4)'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E")`,
+              backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='rgba(255,255,255,0.7)'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E")`,
               backgroundRepeat: "no-repeat",
               backgroundPosition: "right 8px center",
               backgroundSize: "16px",
             }}
           >
-            <option value="teacher" className="bg-[#0f2316]">👩‍🏫 Teacher</option>
-            <option value="principal" className="bg-[#0f2316]">🏫 Principal</option>
-            <option value="vice_principal" className="bg-[#0f2316]">📋 Vice Principal</option>
-            <option value="bursar" className="bg-[#0f2316]">💰 Bursar</option>
+            <option value="teacher" className="bg-brand-green-800 text-white">👩‍🏫 Teacher</option>
+            <option value="principal" className="bg-brand-green-800 text-white">🏫 Principal</option>
+            <option value="vice_principal" className="bg-brand-green-800 text-white">📋 Vice Principal</option>
+            <option value="bursar" className="bg-brand-green-800 text-white">💰 Bursar</option>
           </select>
         </div>
       )}
@@ -102,7 +102,7 @@ export function StaffSidebar({
         }`}
       >
         <p
-          className={`text-[11px] font-semibold text-white/30 uppercase tracking-[0.15em] mb-4 transition-all duration-300 ${
+          className={`text-[11px] font-semibold text-brand-green-200/70 uppercase tracking-[0.15em] mb-4 transition-all duration-300 ${
             isCollapsed ? "opacity-0 h-0 overflow-hidden m-0" : "px-3 opacity-100"
           }`}
         >
@@ -126,8 +126,8 @@ export function StaffSidebar({
                   : "gap-3 px-3 py-2.5 text-[13px]"
               } ${
                 isActive
-                  ? "bg-brand-green/15 text-white font-semibold"
-                  : "text-white/60 hover:bg-white/[.06] hover:text-white/90"
+                  ? "bg-white/15 text-white font-semibold shadow-inner"
+                  : "text-brand-green-100 hover:bg-white/10 hover:text-white"
               }`}
             >
               {isActive && (
@@ -142,7 +142,7 @@ export function StaffSidebar({
                 <span className={isCollapsed ? "text-xl" : "text-base"}>{item.icon}</span>
                 {item.name === "Messages" && STAFF_UNREAD_COUNT > 0 && (
                   <span
-                    className={`absolute bg-red-500 text-white font-bold rounded-full flex items-center justify-center ring-2 ring-[#0f2316] ${
+                    className={`absolute bg-red-500 text-white font-bold rounded-full flex items-center justify-center ring-2 ring-brand-green-700 ${
                       isCollapsed
                         ? "-top-1 -right-1 w-3 h-3 text-[0px]"
                         : "-top-1.5 -right-2.5 w-4 h-4 text-[9px]"
@@ -167,7 +167,7 @@ export function StaffSidebar({
 
       {/* Staff footer — role badge + sign out */}
       <div
-        className={`border-t border-white/[.08] shrink-0 mt-auto transition-all ${
+        className={`border-t border-white/10 shrink-0 mt-auto transition-all ${
           isCollapsed ? "p-2" : "p-4"
         }`}
       >
@@ -175,7 +175,7 @@ export function StaffSidebar({
         {!isCollapsed && (
           <div className="mb-3 px-1">
             <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-full bg-brand-green/20 border border-brand-green/30 text-xs font-bold text-brand-green flex items-center justify-center">
+              <div className="w-8 h-8 rounded-full bg-brand-green-800 border border-brand-green-500 text-xs font-bold text-brand-yellow flex items-center justify-center">
                 {MOCK_STAFF.initials}
               </div>
               <div className="min-w-0 flex-1">
@@ -191,7 +191,7 @@ export function StaffSidebar({
         <Link
           href="/"
           title={isCollapsed ? "Sign Out" : undefined}
-          className={`flex items-center justify-center gap-2 font-medium text-white/50 hover:text-red-400 hover:bg-red-500/10 rounded-lg transition-all ${
+          className={`flex items-center justify-center gap-2 font-medium text-brand-green-100 hover:text-white hover:bg-white/10 rounded-lg transition-all ${
             isCollapsed
               ? "w-12 h-12 mx-auto text-lg"
               : "w-full text-sm px-4 py-2.5"

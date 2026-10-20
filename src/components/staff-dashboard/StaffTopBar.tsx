@@ -89,16 +89,16 @@ export function StaffTopBar({ activeRole, onRoleChange }: StaffTopBarProps) {
 
         {/* Drawer */}
         <div
-          className={`absolute top-0 left-0 bottom-0 w-72 max-w-[85vw] bg-[#0f2316] text-white flex flex-col transition-transform duration-300 ease-out ${
+          className={`absolute top-0 left-0 bottom-0 w-72 max-w-[85vw] bg-brand-green-700 text-white flex flex-col transition-transform duration-300 ease-out shadow-2xl ${
             open ? "translate-x-0" : "-translate-x-full"
           }`}
         >
           {/* Drawer header */}
-          <div className="h-14 flex items-center justify-between px-4 border-b border-white/[.08] shrink-0">
-            <span className="font-bold text-sm tracking-wide">Staff Portal</span>
+          <div className="h-14 flex items-center justify-between px-4 border-b border-white/10 shrink-0">
+            <span className="font-bold text-sm tracking-wide text-white">Staff Portal</span>
             <button
               onClick={() => setOpen(false)}
-              className="p-1.5 text-white/50 hover:text-white rounded-md"
+              className="p-1.5 text-brand-green-100 hover:text-white rounded-md"
               aria-label="Close menu"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -112,12 +112,12 @@ export function StaffTopBar({ activeRole, onRoleChange }: StaffTopBarProps) {
             <select
               value={activeRole}
               onChange={(e) => onRoleChange(e.target.value as StaffRole)}
-              className="w-full text-xs bg-white/[.06] border border-white/[.12] text-white/80 rounded-lg px-2.5 py-2 focus:outline-none focus:ring-1 focus:ring-brand-green/50"
+              className="w-full text-xs bg-brand-green-800 text-white border border-brand-green-600 rounded-lg px-2.5 py-2 focus:outline-none focus:ring-1 focus:ring-brand-yellow font-medium"
             >
-              <option value="teacher" className="bg-[#0f2316]">👩‍🏫 Teacher</option>
-              <option value="principal" className="bg-[#0f2316]">🏫 Principal</option>
-              <option value="vice_principal" className="bg-[#0f2316]">📋 Vice Principal</option>
-              <option value="bursar" className="bg-[#0f2316]">💰 Bursar</option>
+              <option value="teacher" className="bg-brand-green-800 text-white">👩‍🏫 Teacher</option>
+              <option value="principal" className="bg-brand-green-800 text-white">🏫 Principal</option>
+              <option value="vice_principal" className="bg-brand-green-800 text-white">📋 Vice Principal</option>
+              <option value="bursar" className="bg-brand-green-800 text-white">💰 Bursar</option>
             </select>
           </div>
 
@@ -136,8 +136,8 @@ export function StaffTopBar({ activeRole, onRoleChange }: StaffTopBarProps) {
                   onClick={() => setOpen(false)}
                   className={`flex items-center gap-3 px-3 py-3 rounded-lg text-sm transition-colors relative ${
                     isActive
-                      ? "bg-brand-green/15 text-white font-semibold"
-                      : "text-white/60 hover:bg-white/[.06] hover:text-white/90"
+                      ? "bg-white/15 text-white font-semibold"
+                      : "text-brand-green-100 hover:bg-white/10 hover:text-white"
                   }`}
                 >
                   {isActive && (
