@@ -1,14 +1,15 @@
 "use client";
 
 import { useState } from "react";
+import { NavIcon } from "@/components/ui/NavIcon";
 
 const REPORTS = [
-  { name: "Student Demographics", icon: "👤", desc: "Enrollment breakdown by class, gender, and department", color: "bg-blue-50 border-blue-200" },
-  { name: "Academic Performance", icon: "📊", desc: "Average scores, top performers, pass rates by subject", color: "bg-green-50 border-green-200" },
-  { name: "Attendance Summary", icon: "📋", desc: "Monthly attendance rates by class and overall trends", color: "bg-purple-50 border-purple-200" },
-  { name: "Financial Statement", icon: "💰", desc: "Income vs expenditure, collection rates, outstanding fees", color: "bg-emerald-50 border-emerald-200" },
-  { name: "Staff Workload", icon: "👨‍🏫", desc: "Teaching load per staff — classes and subjects assigned", color: "bg-amber-50 border-amber-200" },
-  { name: "Result Completion", icon: "📝", desc: "Submission status percentage across all classes and subjects", color: "bg-red-50 border-red-200" },
+  { name: "Student Demographics", iconName: "students", desc: "Enrollment breakdown by class, gender, and department", color: "bg-blue-50 border-blue-200" },
+  { name: "Academic Performance", iconName: "results", desc: "Average scores, top performers, pass rates by subject", color: "bg-green-50 border-green-200" },
+  { name: "Attendance Summary", iconName: "attendance", desc: "Monthly attendance rates by class and overall trends", color: "bg-purple-50 border-purple-200" },
+  { name: "Financial Statement", iconName: "finance", desc: "Income vs expenditure, collection rates, outstanding fees", color: "bg-emerald-50 border-emerald-200" },
+  { name: "Staff Workload", iconName: "profile", desc: "Teaching load per staff — classes and subjects assigned", color: "bg-amber-50 border-amber-200" },
+  { name: "Result Completion", iconName: "results", desc: "Submission status percentage across all classes and subjects", color: "bg-red-50 border-red-200" },
 ];
 
 const ENROLLMENT_DATA = [
@@ -48,7 +49,9 @@ export default function ReportsPage() {
             className={`text-left rounded-xl border p-5 hover:shadow-md transition-all ${r.color} ${expanded === r.name ? "ring-2 ring-brand-green-200" : ""}`}
           >
             <div className="flex items-center gap-3 mb-2">
-              <span className="text-2xl">{r.icon}</span>
+              <div className="w-9 h-9 rounded-lg bg-white/80 flex items-center justify-center shrink-0 shadow-xs">
+                <NavIcon name={r.iconName} className="w-5 h-5 text-slate-700" />
+              </div>
               <h3 className="text-sm font-bold text-slate-800">{r.name}</h3>
             </div>
             <p className="text-[11px] text-slate-600">{r.desc}</p>
