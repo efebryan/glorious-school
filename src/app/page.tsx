@@ -21,8 +21,9 @@ export default function Home() {
           <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
             {/* Left content */}
             <div className="w-full lg:w-3/5 text-center lg:text-left animate-fade-in-up">
-              <span className="inline-block py-1.5 px-4 rounded-full bg-brand-yellow/20 text-brand-yellow font-semibold text-xs sm:text-sm mb-5 border border-brand-yellow/30 tracking-wide uppercase">
-                📚 Admissions Open for 2026/2027
+              <span className="inline-flex items-center gap-1.5 py-1.5 px-4 rounded-full bg-brand-yellow/20 text-brand-yellow font-semibold text-xs sm:text-sm mb-5 border border-brand-yellow/30 tracking-wide uppercase">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
+                Admissions Open for 2026/2027
               </span>
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-5 sm:mb-6 leading-[1.15]">
                 Nurturing <span className="text-brand-yellow">Excellence</span>{" "}
@@ -60,7 +61,9 @@ export default function Home() {
               </div>
               {/* Floating badge */}
               <div className="absolute -bottom-4 sm:-bottom-6 left-2 sm:-left-4 bg-white p-3 sm:p-4 rounded-xl shadow-xl border border-slate-100 flex items-center gap-3">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-brand-yellow rounded-full flex items-center justify-center text-xl sm:text-2xl shrink-0">🏆</div>
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-brand-yellow text-slate-900 rounded-full flex items-center justify-center shrink-0">
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" /></svg>
+                </div>
                 <div>
                   <p className="text-[10px] sm:text-xs text-slate-500 font-medium">Recognized for</p>
                   <p className="text-xs sm:text-sm font-bold text-slate-900">Academic Excellence</p>
