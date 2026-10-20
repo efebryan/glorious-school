@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { MOCK_STAFF, STAFF_ROLE_LABELS, STAFF_ROLE_COLORS } from "@/lib/staff-dashboard-config";
+import { ProfilePhotoUpload } from "@/components/ui/ProfilePhotoUpload";
 
 function StatCard({ icon, color, label, value, sub }: { icon: string; color: string; label: string; value: string; sub: string }) {
   return (
