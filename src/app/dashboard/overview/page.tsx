@@ -50,21 +50,29 @@ export default function OverviewPage() {
         <div className="absolute -top-12 -right-12 w-48 h-48 bg-brand-yellow/15 rounded-full blur-2xl" />
         <div className="absolute -bottom-16 -left-16 w-40 h-40 bg-brand-green-500/30 rounded-full blur-3xl" />
         <div className="relative z-10">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-            <div>
-              <p className="text-white/60 text-xs font-semibold tracking-wider uppercase mb-1.5">
-                {MOCK_STUDENT.session} — {MOCK_STUDENT.term}
-              </p>
-              <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold leading-tight">
-                Welcome back, {MOCK_STUDENT.firstName} 👋
-              </h1>
-              <p className="text-white/70 text-sm mt-1">
-                {MOCK_STUDENT.admissionNo} · {MOCK_STUDENT.class} {MOCK_STUDENT.department}
-              </p>
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div className="flex items-center gap-4">
+              <ProfilePhotoUpload
+                initials={MOCK_STUDENT.initials}
+                name={`${MOCK_STUDENT.firstName} ${MOCK_STUDENT.lastName}`}
+                size="lg"
+                showUploadButton={false}
+              />
+              <div>
+                <p className="text-white/60 text-xs font-semibold tracking-wider uppercase mb-1">
+                  {MOCK_STUDENT.session} — {MOCK_STUDENT.term}
+                </p>
+                <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold leading-tight">
+                  Welcome back, {MOCK_STUDENT.firstName} 👋
+                </h1>
+                <p className="text-white/70 text-sm mt-0.5">
+                  {MOCK_STUDENT.admissionNo} · {MOCK_STUDENT.class} {MOCK_STUDENT.department}
+                </p>
+              </div>
             </div>
             <Link
               href="/dashboard/profile"
-              className="hidden sm:inline-flex items-center gap-2 px-4 py-2 bg-white/15 hover:bg-white/25 backdrop-blur text-sm font-semibold rounded-lg transition-colors border border-white/20"
+              className="inline-flex self-start sm:self-auto items-center gap-2 px-4 py-2 bg-white/15 hover:bg-white/25 backdrop-blur text-sm font-semibold rounded-lg transition-colors border border-white/20"
             >
               View Profile
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" /></svg>
