@@ -11,6 +11,7 @@ import {
   getAllNavItems,
 } from "@/lib/admin-config";
 import { AdminNotificationDropdown } from "@/components/admin/AdminNotificationDropdown";
+import { NavIcon } from "@/components/ui/NavIcon";
 
 interface AdminTopBarProps {
   activeRole: AdminRole;
