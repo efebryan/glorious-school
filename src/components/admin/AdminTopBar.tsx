@@ -109,7 +109,7 @@ export function AdminTopBar({ activeRole, onRoleChange }: AdminTopBarProps) {
                         : "text-brand-green-100 hover:text-white hover:bg-white/5"
                     }`}
                   >
-                    <span className="text-base w-6 text-center">{item.icon}</span>
+                    <NavIcon name={item.name} className="w-5 h-5 shrink-0" />
                     <span>{item.name}</span>
                   </Link>
                 );
