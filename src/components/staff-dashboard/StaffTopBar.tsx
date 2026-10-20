@@ -13,6 +13,7 @@ import {
 } from "@/lib/staff-dashboard-config";
 import { StaffNotificationDropdown } from "@/components/staff-dashboard/StaffNotificationDropdown";
 import { NavIcon } from "@/components/ui/NavIcon";
+import { ProfilePhotoUpload } from "@/components/ui/ProfilePhotoUpload";
 
 interface StaffTopBarProps {
   activeRole: StaffRole;
@@ -66,9 +67,16 @@ export function StaffTopBar({ activeRole, onRoleChange }: StaffTopBarProps) {
             <StaffNotificationDropdown />
             <Link
               href="/staff-dashboard/profile"
-              className="w-8 h-8 rounded-full bg-brand-green/10 border border-brand-green/20 text-xs font-bold text-brand-green flex items-center justify-center"
+              className="flex items-center"
+              title="My Profile"
             >
-              {MOCK_STAFF.initials}
+              <ProfilePhotoUpload
+                initials={MOCK_STAFF.initials}
+                name={`${MOCK_STAFF.firstName} ${MOCK_STAFF.lastName}`}
+                size="sm"
+                editable={false}
+                showUploadButton={false}
+              />
             </Link>
           </div>
         </div>
