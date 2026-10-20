@@ -2,6 +2,7 @@
 
 import { MOCK_STAFF, STAFF_ROLE_LABELS, STAFF_ROLE_COLORS } from "@/lib/staff-dashboard-config";
 import { ProfilePhotoUpload } from "@/components/ui/ProfilePhotoUpload";
+import { NavIcon } from "@/components/ui/NavIcon";
 
 export default function ProfilePage() {
   return (
