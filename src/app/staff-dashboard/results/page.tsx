@@ -44,19 +44,25 @@ export default function ResultsPage() {
       <div className="flex gap-1 bg-slate-100 p-1 rounded-lg w-fit">
         <button
           onClick={() => setActiveTab("entry")}
-          className={`px-4 py-2 text-sm font-semibold rounded-md transition-all ${
+          className={`inline-flex items-center gap-1.5 px-4 py-2 text-sm font-semibold rounded-md transition-all ${
             activeTab === "entry" ? "bg-white text-slate-900 shadow-sm" : "text-slate-500 hover:text-slate-700"
           }`}
         >
-          📝 Score Entry
+          <svg className="w-4 h-4 text-brand-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+          </svg>
+          Score Entry
         </button>
         <button
           onClick={() => setActiveTab("approval")}
-          className={`px-4 py-2 text-sm font-semibold rounded-md transition-all ${
+          className={`inline-flex items-center gap-1.5 px-4 py-2 text-sm font-semibold rounded-md transition-all ${
             activeTab === "approval" ? "bg-white text-slate-900 shadow-sm" : "text-slate-500 hover:text-slate-700"
           }`}
         >
-          ✅ Approval Queue
+          <svg className="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          Approval Queue
         </button>
       </div>
 
