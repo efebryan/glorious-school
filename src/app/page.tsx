@@ -161,17 +161,41 @@ export default function Home() {
         />
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 stagger-children">
           {[
-            { icon: '📚', title: 'Comprehensive Curriculum', desc: 'A rigorous academic program aligned with international and national standards across all sections.' },
-            { icon: '🔬', title: 'Modern Facilities', desc: 'State-of-the-art science labs, computer rooms, and well-stocked libraries for hands-on learning.' },
-            { icon: '🌱', title: 'Holistic Development', desc: 'Focus on character building, sports, arts, and extracurricular activities for complete growth.' },
-            { icon: '👨‍🏫', title: 'Expert Educators', desc: 'Highly qualified, passionate teachers dedicated to individual student success and mentorship.' },
-            { icon: '🛡️', title: 'Safe Environment', desc: 'Secure, nurturing campus with CCTV monitoring ensuring peace of mind for parents.' },
-            { icon: '💻', title: 'Digital Integration', desc: 'Technology-driven learning tools and smart classrooms to prepare students for the digital age.' },
+            { 
+              icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>, 
+              title: 'Comprehensive Curriculum', 
+              desc: 'A rigorous academic program aligned with international and national standards across all sections.' 
+            },
+            { 
+              icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>, 
+              title: 'Modern Facilities', 
+              desc: 'State-of-the-art science labs, computer rooms, and well-stocked libraries for hands-on learning.' 
+            },
+            { 
+              icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" /></svg>, 
+              title: 'Holistic Development', 
+              desc: 'Focus on character building, sports, arts, and extracurricular activities for complete growth.' 
+            },
+            { 
+              icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>, 
+              title: 'Expert Educators', 
+              desc: 'Highly qualified, passionate teachers dedicated to individual student success and mentorship.' 
+            },
+            { 
+              icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>, 
+              title: 'Safe Environment', 
+              desc: 'Secure, nurturing campus with CCTV monitoring ensuring peace of mind for parents.' 
+            },
+            { 
+              icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>, 
+              title: 'Digital Integration', 
+              desc: 'Technology-driven learning tools and smart classrooms to prepare students for the digital age.' 
+            },
           ].map((feature, i) => (
             <Card key={i} className="border-none shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group">
               <CardContent className="pt-8">
-                <div className="w-14 h-14 bg-brand-green-50 rounded-xl flex items-center justify-center text-3xl mb-5 group-hover:bg-brand-green group-hover:scale-110 transition-all duration-300">
-                  <span className="group-hover:scale-110 transition-transform">{feature.icon}</span>
+                <div className="w-14 h-14 bg-brand-green-50 text-brand-green rounded-xl flex items-center justify-center mb-5 group-hover:bg-brand-green group-hover:text-white group-hover:scale-110 transition-all duration-300">
+                  {feature.icon}
                 </div>
                 <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-2">{feature.title}</h3>
                 <p className="text-slate-600 leading-relaxed text-sm sm:text-base">{feature.desc}</p>
@@ -218,8 +242,14 @@ export default function Home() {
               <CardContent className="py-5">
                 <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-2">{event.title}</h3>
                 <div className="space-y-1 text-xs sm:text-sm text-slate-600">
-                  <div className="flex items-center"><span className="mr-2 text-brand-green">⏰</span> {event.time}</div>
-                  <div className="flex items-center"><span className="mr-2 text-brand-green">📍</span> {event.loc}</div>
+                  <div className="flex items-center">
+                    <svg className="w-4 h-4 mr-2 text-brand-green shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    {event.time}
+                  </div>
+                  <div className="flex items-center">
+                    <svg className="w-4 h-4 mr-2 text-brand-green shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                    {event.loc}
+                  </div>
                 </div>
               </CardContent>
             </Card>
