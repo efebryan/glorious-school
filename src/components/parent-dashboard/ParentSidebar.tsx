@@ -64,8 +64,8 @@ export function ParentSidebar({
               key={item.name}
               href={item.href}
               title={isCollapsed ? item.name : undefined}
-              className={`group flex items-center rounded-lg transition-all duration-200 relative ${
-                isCollapsed ? "justify-center h-12 w-12 mx-auto" : "gap-3 px-3 py-2.5 text-[13px]"
+              className={`group flex items-center rounded-xl transition-all duration-200 relative ${
+                isCollapsed ? "justify-center h-12 w-12 mx-auto" : "gap-3.5 px-3.5 py-2.5 text-[14.5px] font-medium"
               } ${
                 isActive
                   ? "bg-white/15 text-white font-semibold shadow-inner"
@@ -79,7 +79,7 @@ export function ParentSidebar({
               <div className="relative shrink-0 flex items-center justify-center">
                 <NavIcon
                   name={item.name}
-                  className={`${isCollapsed ? "w-5 h-5" : "w-[18px] h-[18px]"} transition-transform duration-200 group-hover:scale-110`}
+                  className={`${isCollapsed ? "w-6 h-6" : "w-[21px] h-[21px]"} transition-transform duration-200 group-hover:scale-110`}
                 />
                 {item.name === "Messages" && PARENT_UNREAD_COUNT > 0 && (
                   <span className={`absolute bg-red-500 text-white font-bold rounded-full flex items-center justify-center ring-2 ring-brand-green-700 ${
