@@ -8,8 +8,10 @@ export const metadata: Metadata = {
 export default function NotFound() {
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col items-center justify-center p-4 text-center">
-      <div className="w-20 h-20 bg-brand-green-100 text-brand-green-700 rounded-2xl flex items-center justify-center font-bold text-3xl mb-8 shadow-sm">
-        🤔
+      <div className="w-20 h-20 bg-brand-green-100 text-brand-green-700 rounded-2xl flex items-center justify-center mb-8 shadow-sm">
+        <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
       </div>
       <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">
         404 - Page Not Found
