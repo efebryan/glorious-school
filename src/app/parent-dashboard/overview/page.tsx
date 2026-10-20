@@ -2,14 +2,15 @@
 
 import Link from "next/link";
 import { MOCK_PARENT } from "@/lib/parent-dashboard-config";
+import { NavIcon } from "@/components/ui/NavIcon";
 
 // --- Reusable sub-components scoped to this page ---
 
-function StatCard({ icon, color, label, value, sub }: { icon: string; color: string; label: string; value: string; sub: string }) {
+function StatCard({ iconName, color, label, value, sub }: { iconName: string; color: string; label: string; value: string; sub: string }) {
   return (
     <div className="bg-white rounded-xl border border-slate-200/60 p-4 sm:p-5 flex items-center gap-4 hover:shadow-md transition-shadow">
-      <div className={`w-11 h-11 rounded-xl flex items-center justify-center text-xl shrink-0 ${color}`}>
-        {icon}
+      <div className={`w-11 h-11 rounded-xl flex items-center justify-center shrink-0 ${color}`}>
+        <NavIcon name={iconName} className="w-5 h-5" />
       </div>
       <div className="min-w-0">
         <p className="text-xs text-slate-500 font-medium truncate">{label}</p>
@@ -73,10 +74,10 @@ export default function ParentOverviewPage() {
 
       {/* Stats */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 stagger-children">
-        <StatCard icon="👨‍👩‍👧‍👦" color="bg-blue-50 text-blue-500" label="My Wards" value={String(MOCK_PARENT.children.length)} sub="Active Students" />
-        <StatCard icon="💰" color="bg-red-50 text-red-500" label="Total Outstanding" value={`₦${totalOutstanding.toLocaleString()}`} sub="Action Required" />
-        <StatCard icon="🔔" color="bg-amber-50 text-amber-500" label="Unread Messages" value="3" sub="From Administration" />
-        <StatCard icon="📅" color="bg-emerald-50 text-emerald-500" label="Next Event" value="PTA Meeting" sub="Mar 15, 9:00 AM" />
+        <StatCard iconName="students" color="bg-blue-50 text-blue-600" label="My Wards" value={String(MOCK_PARENT.children.length)} sub="Active Students" />
+        <StatCard iconName="finance" color="bg-red-50 text-red-600" label="Total Outstanding" value={`₦${totalOutstanding.toLocaleString()}`} sub="Action Required" />
+        <StatCard iconName="messages" color="bg-amber-50 text-amber-600" label="Unread Messages" value="3" sub="From Administration" />
+        <StatCard iconName="calendar" color="bg-emerald-50 text-emerald-600" label="Next Event" value="PTA Meeting" sub="Mar 15, 9:00 AM" />
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
@@ -171,8 +172,8 @@ export default function ParentOverviewPage() {
                 href="/parent-dashboard/fees"
                 className="bg-white border border-slate-200/60 rounded-xl p-4 text-center hover:shadow-md hover:border-brand-green/30 transition-all group"
               >
-                <div className="w-10 h-10 bg-emerald-50 text-emerald-500 rounded-xl flex items-center justify-center mx-auto mb-2 group-hover:scale-110 transition-transform">
-                  💳
+                <div className="w-10 h-10 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center mx-auto mb-2 group-hover:scale-110 transition-transform">
+                  <NavIcon name="card" className="w-5 h-5" />
                 </div>
                 <p className="text-xs font-semibold text-slate-700">Pay Fees</p>
               </Link>
@@ -180,8 +181,8 @@ export default function ParentOverviewPage() {
                 href="/parent-dashboard/children"
                 className="bg-white border border-slate-200/60 rounded-xl p-4 text-center hover:shadow-md hover:border-brand-green/30 transition-all group"
               >
-                <div className="w-10 h-10 bg-blue-50 text-blue-500 rounded-xl flex items-center justify-center mx-auto mb-2 group-hover:scale-110 transition-transform">
-                  📊
+                <div className="w-10 h-10 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mx-auto mb-2 group-hover:scale-110 transition-transform">
+                  <NavIcon name="results" className="w-5 h-5" />
                 </div>
                 <p className="text-xs font-semibold text-slate-700">View Results</p>
               </Link>
