@@ -12,6 +12,12 @@ const QUICK_ACTIONS = [
   { label: "View Finance", href: "/admin/finance", iconName: "finance", color: "bg-emerald-50 text-emerald-700 border-emerald-200" },
   { label: "System Settings", href: "/admin/settings", iconName: "settings", color: "bg-slate-100 text-slate-700 border-slate-200" },
 ];
+const PORTAL_STATUS = [
+  { name: "Public Website", status: "Live", color: "bg-green-500", lastActivity: "—" },
+  { name: "Student Portal", status: "Active", color: "bg-green-500", lastActivity: "2 min ago" },
+  { name: "Parent Portal", status: "Active", color: "bg-green-500", lastActivity: "15 min ago" },
+  { name: "Staff Portal", status: "Active", color: "bg-green-500", lastActivity: "5 min ago" },
+];
 
 export default function AdminOverviewPage() {
   const s = MOCK_SYSTEM_STATS;
