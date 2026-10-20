@@ -15,7 +15,7 @@ export function Sidebar({
 
   return (
     <aside 
-      className={`hidden lg:flex flex-col bg-[#0f2316] text-slate-300 fixed inset-y-0 left-0 z-30 transition-[width] duration-300 ease-in-out ${
+      className={`hidden lg:flex flex-col bg-brand-green-700 text-slate-100 fixed inset-y-0 left-0 z-30 transition-[width] duration-300 ease-in-out shadow-xl ${
         isCollapsed ? "w-[84px]" : "w-[260px]"
       }`}
     >
@@ -23,7 +23,7 @@ export function Sidebar({
       {toggleSidebar && (
         <button
           onClick={toggleSidebar}
-          className="absolute -right-3.5 top-6 w-7 h-7 bg-brand-green border-[3px] border-slate-100 text-white rounded-full flex items-center justify-center shadow-sm z-40 transition-transform duration-300 hover:bg-brand-green-700 hover:scale-110"
+          className="absolute -right-3.5 top-6 w-7 h-7 bg-brand-green-800 border-[3px] border-slate-100 text-white rounded-full flex items-center justify-center shadow-md z-40 transition-transform duration-300 hover:bg-brand-green-600 hover:scale-110"
           style={{ transform: isCollapsed ? 'rotate(180deg)' : 'rotate(0deg)' }}
           aria-label={isCollapsed ? "Expand sidebar" : "Collapse sidebar"}
         >
@@ -34,21 +34,21 @@ export function Sidebar({
       )}
 
       {/* Logo */}
-      <div className={`h-16 flex items-center border-b border-white/[.08] shrink-0 overflow-hidden ${isCollapsed ? "justify-center px-0" : "px-5"}`}>
+      <div className={`h-16 flex items-center border-b border-white/10 shrink-0 overflow-hidden ${isCollapsed ? "justify-center px-0" : "px-5"}`}>
         <Link href="/dashboard/overview" className="flex items-center gap-2.5 w-full">
-          <div className="w-9 h-9 bg-brand-green rounded-lg flex items-center justify-center text-white font-bold text-base shadow-lg shrink-0 mx-auto lg:mx-0">
+          <div className="w-9 h-9 bg-white text-brand-green-700 rounded-lg flex items-center justify-center font-bold text-base shadow-md shrink-0 mx-auto lg:mx-0">
             G
           </div>
           <div className={`flex flex-col leading-tight whitespace-nowrap transition-opacity duration-300 ${isCollapsed ? "opacity-0 w-0" : "opacity-100"}`}>
-            <span className="font-bold text-[15px] text-white">Glorious Portal</span>
-            <span className="text-[10px] text-white/40 font-medium tracking-wider uppercase">Student</span>
+            <span className="font-bold text-[15px] text-white tracking-tight">Glorious Portal</span>
+            <span className="text-[10px] text-brand-yellow font-semibold tracking-wider uppercase">Student</span>
           </div>
         </Link>
       </div>
 
       {/* Nav */}
-      <nav className={`flex-1 overflow-y-auto overflow-x-hidden py-5 space-y-1 ${isCollapsed ? "px-2 text-center" : "px-3"}`}>
-        <p className={`text-[11px] font-semibold text-white/30 uppercase tracking-[0.15em] mb-4 transition-all duration-300 ${isCollapsed ? "opacity-0 h-0 overflow-hidden m-0" : "px-3 opacity-100"}`}>
+      <nav className={`flex-1 overflow-y-auto overflow-x-hidden py-4 space-y-1 ${isCollapsed ? "px-2 text-center" : "px-3"}`}>
+        <p className={`text-[11px] font-semibold text-brand-green-200/70 uppercase tracking-[0.15em] mb-4 transition-all duration-300 ${isCollapsed ? "opacity-0 h-0 overflow-hidden m-0" : "px-3 opacity-100"}`}>
           Menu
         </p>
         
@@ -67,8 +67,8 @@ export function Sidebar({
                 isCollapsed ? "justify-center h-12 w-12 mx-auto" : "gap-3 px-3 py-2.5 text-[13px]"
               } ${
                 isActive
-                  ? "bg-brand-green/15 text-white font-semibold"
-                  : "text-white/60 hover:bg-white/[.06] hover:text-white/90"
+                  ? "bg-white/15 text-white font-semibold shadow-inner"
+                  : "text-brand-green-100 hover:bg-white/10 hover:text-white"
               }`}
             >
               {isActive && (
@@ -78,7 +78,7 @@ export function Sidebar({
               <div className="relative shrink-0 flex items-center justify-center">
                 <span className={isCollapsed ? "text-xl" : "text-base"}>{item.icon}</span>
                 {item.name === "Notifications" && UNREAD_COUNT > 0 && (
-                  <span className={`absolute bg-red-500 text-white font-bold rounded-full flex items-center justify-center ring-2 ring-[#0f2316] ${
+                  <span className={`absolute bg-red-500 text-white font-bold rounded-full flex items-center justify-center ring-2 ring-brand-green-700 ${
                     isCollapsed 
                       ? "-top-1 -right-1 w-3 h-3 text-[0px]" // small dot on collapsed
                       : "-top-1.5 -right-2.5 w-4 h-4 text-[9px]" // full badge on expanded
@@ -97,11 +97,11 @@ export function Sidebar({
       </nav>
 
       {/* User footer */}
-      <div className={`p-4 border-t border-white/[.08] shrink-0 mt-auto transition-all ${isCollapsed ? "px-2" : "px-4"}`}>
+      <div className={`p-4 border-t border-white/10 shrink-0 mt-auto transition-all ${isCollapsed ? "px-2" : "px-4"}`}>
         <Link
           href="/"
           title={isCollapsed ? "Sign Out" : undefined}
-          className={`flex items-center justify-center gap-2 font-medium text-white/50 hover:text-red-400 hover:bg-red-500/10 rounded-lg transition-all ${
+          className={`flex items-center justify-center gap-2 font-medium text-brand-green-100 hover:text-white hover:bg-white/10 rounded-lg transition-all ${
             isCollapsed ? "w-12 h-12 mx-auto text-lg" : "w-full text-sm px-4 py-2.5"
           }`}
         >
