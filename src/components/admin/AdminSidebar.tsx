@@ -9,6 +9,7 @@ import {
   MOCK_ADMIN,
   getNavGroupsForRole,
 } from "@/lib/admin-config";
+import { NavIcon } from "@/components/ui/NavIcon";
 
 interface AdminSidebarProps {
   isCollapsed: boolean;
@@ -83,7 +84,7 @@ export function AdminSidebar({ isCollapsed, toggleSidebar, activeRole, onRoleCha
                   {isActive && (
                     <span className="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-5 bg-brand-yellow rounded-r-full" />
                   )}
-                  <span className="text-base shrink-0 w-6 text-center">{item.icon}</span>
+                  <NavIcon name={item.name} className="w-[18px] h-[18px] shrink-0" />
                   {!isCollapsed && <span className="truncate">{item.name}</span>}
                 </Link>
               );
