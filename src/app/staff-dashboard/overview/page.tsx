@@ -48,26 +48,34 @@ export default function StaffOverviewPage() {
         <div className="absolute -top-12 -right-12 w-48 h-48 bg-brand-yellow/15 rounded-full blur-2xl" />
         <div className="absolute -bottom-16 -left-16 w-40 h-40 bg-brand-green-500/30 rounded-full blur-3xl" />
         <div className="relative z-10">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-            <div>
-              <p className="text-white/60 text-xs font-semibold tracking-wider uppercase mb-1.5">
-                {MOCK_STAFF.session} — {MOCK_STAFF.term}
-              </p>
-              <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold leading-tight">
-                Welcome back, {MOCK_STAFF.firstName} 👋
-              </h1>
-              <div className="flex items-center gap-2 mt-2">
-                <p className="text-white/70 text-sm">
-                  {MOCK_STAFF.staffId} · {MOCK_STAFF.department}
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div className="flex items-center gap-4">
+              <ProfilePhotoUpload
+                initials={MOCK_STAFF.initials}
+                name={`${MOCK_STAFF.firstName} ${MOCK_STAFF.lastName}`}
+                size="lg"
+                showUploadButton={false}
+              />
+              <div>
+                <p className="text-white/60 text-xs font-semibold tracking-wider uppercase mb-1">
+                  {MOCK_STAFF.session} — {MOCK_STAFF.term}
                 </p>
-                <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${STAFF_ROLE_COLORS[MOCK_STAFF.role]}`}>
-                  {STAFF_ROLE_LABELS[MOCK_STAFF.role]}
-                </span>
+                <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold leading-tight">
+                  Welcome back, {MOCK_STAFF.firstName} 👋
+                </h1>
+                <div className="flex items-center gap-2 mt-1.5">
+                  <p className="text-white/70 text-sm">
+                    {MOCK_STAFF.staffId} · {MOCK_STAFF.department}
+                  </p>
+                  <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${STAFF_ROLE_COLORS[MOCK_STAFF.role]}`}>
+                    {STAFF_ROLE_LABELS[MOCK_STAFF.role]}
+                  </span>
+                </div>
               </div>
             </div>
             <Link
               href="/staff-dashboard/profile"
-              className="hidden sm:inline-flex items-center gap-2 px-4 py-2 bg-white/15 hover:bg-white/25 backdrop-blur text-sm font-semibold rounded-lg transition-colors border border-white/20"
+              className="inline-flex self-start sm:self-auto items-center gap-2 px-4 py-2 bg-white/15 hover:bg-white/25 backdrop-blur text-sm font-semibold rounded-lg transition-colors border border-white/20"
             >
               View Profile
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" /></svg>
