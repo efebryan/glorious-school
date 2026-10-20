@@ -3,12 +3,13 @@
 import Link from "next/link";
 import { MOCK_STAFF, STAFF_ROLE_LABELS, STAFF_ROLE_COLORS } from "@/lib/staff-dashboard-config";
 import { ProfilePhotoUpload } from "@/components/ui/ProfilePhotoUpload";
+import { NavIcon } from "@/components/ui/NavIcon";
 
-function StatCard({ icon, color, label, value, sub }: { icon: string; color: string; label: string; value: string; sub: string }) {
+function StatCard({ iconName, color, label, value, sub }: { iconName: string; color: string; label: string; value: string; sub: string }) {
   return (
     <div className="bg-white rounded-xl border border-slate-200/60 p-4 sm:p-5 flex items-center gap-4 hover:shadow-md transition-shadow">
-      <div className={`w-11 h-11 rounded-xl flex items-center justify-center text-xl shrink-0 ${color}`}>
-        {icon}
+      <div className={`w-11 h-11 rounded-xl flex items-center justify-center shrink-0 ${color}`}>
+        <NavIcon name={iconName} className="w-5 h-5" />
       </div>
       <div className="min-w-0">
         <p className="text-xs text-slate-500 font-medium truncate">{label}</p>
@@ -21,18 +22,18 @@ function StatCard({ icon, color, label, value, sub }: { icon: string; color: str
 
 export default function StaffOverviewPage() {
   const recentActivity = [
-    { action: "Submitted SS 2 Physics results", time: "10 min ago", icon: "📝" },
-    { action: "Marked attendance for SS 1A", time: "1 hr ago", icon: "📋" },
-    { action: "Approved JSS 3 Mathematics results", time: "2 hrs ago", icon: "✅" },
-    { action: "Sent message to Mr. Richard Doe", time: "3 hrs ago", icon: "💬" },
-    { action: "Updated SS 2 timetable", time: "Yesterday", icon: "📅" },
+    { action: "Submitted SS 2 Physics results", time: "10 min ago", iconName: "results" },
+    { action: "Marked attendance for SS 1A", time: "1 hr ago", iconName: "attendance" },
+    { action: "Approved JSS 3 Mathematics results", time: "2 hrs ago", iconName: "approved" },
+    { action: "Sent message to Mr. Richard Doe", time: "3 hrs ago", iconName: "messages" },
+    { action: "Updated SS 2 timetable", time: "Yesterday", iconName: "timetable" },
   ];
 
   const quickActions = [
-    { label: "Enter Results", icon: "📝", href: "/staff-dashboard/results", color: "bg-blue-50 text-blue-600 border-blue-100" },
-    { label: "Take Attendance", icon: "📋", href: "/staff-dashboard/attendance", color: "bg-emerald-50 text-emerald-600 border-emerald-100" },
-    { label: "View Timetable", icon: "📅", href: "/staff-dashboard/timetable", color: "bg-amber-50 text-amber-600 border-amber-100" },
-    { label: "Post Announcement", icon: "📢", href: "/staff-dashboard/announcements", color: "bg-purple-50 text-purple-600 border-purple-100" },
+    { label: "Enter Results", iconName: "results", href: "/staff-dashboard/results", color: "bg-blue-50 text-blue-600 border-blue-100" },
+    { label: "Take Attendance", iconName: "attendance", href: "/staff-dashboard/attendance", color: "bg-emerald-50 text-emerald-600 border-emerald-100" },
+    { label: "View Timetable", iconName: "timetable", href: "/staff-dashboard/timetable", color: "bg-amber-50 text-amber-600 border-amber-100" },
+    { label: "Post Announcement", iconName: "announcements", href: "/staff-dashboard/announcements", color: "bg-purple-50 text-purple-600 border-purple-100" },
   ];
 
   const events = [
