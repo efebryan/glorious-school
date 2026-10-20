@@ -22,12 +22,12 @@ const STATUS_MAP: Record<string, string[]> = {
   "Civic Ed":   ["A", "A", "A", "A", "P", "N"],
 };
 
-const STATUS_DISPLAY: Record<string, { icon: string; bg: string }> = {
-  A: { icon: "✅", bg: "bg-green-50" },
-  P: { icon: "🟠", bg: "bg-orange-50" },
-  D: { icon: "🟡", bg: "bg-yellow-50" },
-  N: { icon: "🔴", bg: "bg-red-50" },
-  X: { icon: "—", bg: "bg-slate-50" },
+const STATUS_DISPLAY: Record<string, { label: string; bg: string; dot: string }> = {
+  A: { label: "Approved", bg: "bg-emerald-50 text-emerald-700", dot: "bg-emerald-500" },
+  P: { label: "Pending", bg: "bg-orange-50 text-orange-700", dot: "bg-orange-500" },
+  D: { label: "Draft", bg: "bg-amber-50 text-amber-700", dot: "bg-amber-400" },
+  N: { label: "Not Started", bg: "bg-red-50 text-red-700", dot: "bg-red-500" },
+  X: { label: "—", bg: "bg-slate-50 text-slate-400", dot: "bg-slate-300" },
 };
 
 const GRADING_SCALE = [
