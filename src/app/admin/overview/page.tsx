@@ -2,22 +2,15 @@
 
 import Link from "next/link";
 import { MOCK_ADMIN, MOCK_AUDIT_LOG, MOCK_SYSTEM_STATS, ADMIN_ROLE_LABELS, ADMIN_ROLE_COLORS } from "@/lib/admin-config";
-
-const AUDIT_ICONS: Record<string, string> = { results: "📝", finance: "💰", cms: "🌐", system: "⚙️", users: "👤", discipline: "⚖️" };
-const PORTAL_STATUS = [
-  { name: "Public Website", status: "Live", color: "bg-green-500", lastActivity: "—" },
-  { name: "Student Portal", status: "Active", color: "bg-green-500", lastActivity: "2 min ago" },
-  { name: "Parent Portal", status: "Active", color: "bg-green-500", lastActivity: "15 min ago" },
-  { name: "Staff Portal", status: "Active", color: "bg-green-500", lastActivity: "5 min ago" },
-];
+import { NavIcon } from "@/components/ui/NavIcon";
 
 const QUICK_ACTIONS = [
-  { label: "Add New Student", href: "/admin/users", icon: "👤", color: "bg-blue-50 text-blue-700 border-blue-200" },
-  { label: "Approve Results", href: "/admin/results", icon: "✅", color: "bg-green-50 text-green-700 border-green-200" },
-  { label: "Create Event", href: "/admin/cms/events", icon: "📰", color: "bg-purple-50 text-purple-700 border-purple-200" },
-  { label: "Post Announcement", href: "/admin/communications", icon: "📢", color: "bg-amber-50 text-amber-700 border-amber-200" },
-  { label: "View Finance", href: "/admin/finance", icon: "💰", color: "bg-emerald-50 text-emerald-700 border-emerald-200" },
-  { label: "System Settings", href: "/admin/settings", icon: "⚙️", color: "bg-slate-100 text-slate-700 border-slate-200" },
+  { label: "Add New Student", href: "/admin/users", iconName: "students", color: "bg-blue-50 text-blue-700 border-blue-200" },
+  { label: "Approve Results", href: "/admin/results", iconName: "approved", color: "bg-green-50 text-green-700 border-green-200" },
+  { label: "Create Event", href: "/admin/cms/events", iconName: "news", color: "bg-purple-50 text-purple-700 border-purple-200" },
+  { label: "Post Announcement", href: "/admin/communications", iconName: "announcements", color: "bg-amber-50 text-amber-700 border-amber-200" },
+  { label: "View Finance", href: "/admin/finance", iconName: "finance", color: "bg-emerald-50 text-emerald-700 border-emerald-200" },
+  { label: "System Settings", href: "/admin/settings", iconName: "settings", color: "bg-slate-100 text-slate-700 border-slate-200" },
 ];
 
 export default function AdminOverviewPage() {
