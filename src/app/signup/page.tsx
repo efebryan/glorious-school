@@ -1,39 +1,18 @@
 "use client";
 
-import { useState } from "react";
+import { useActionState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { Select } from "@/components/ui/Select";
 import { Card, CardContent } from "@/components/ui/Card";
+import { signUp, type AuthState } from "@/lib/actions/auth";
 
 export default function SignupPage() {
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "", 
-    phone: "",
-    accountType: "",
-    password: "",
-    confirmPassword: ""
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (formData.password !== formData.confirmPassword) {
-      alert("Passwords do not match");
-      return;
-    }
-    
-    setIsSubmitting(true);
-    
-    // UI mock for form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      alert("This is a demo. Registration logic will be implemented in the backend phase.");
-    }, 1500);
-  };
+  const [state, formAction, isPending] = useActionState<AuthState | null, FormData>(
+    signUp,
+    null
+  );
 
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
@@ -54,97 +33,108 @@ export default function SignupPage() {
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-xl">
         <Card className="shadow-lg border-none py-8 px-4 sm:px-10 bg-white">
           <CardContent className="p-0">
-            <form className="space-y-5" onSubmit={handleSubmit}>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                <Input 
-                  label="First Name" 
-                  name="firstName"
-                  placeholder="e.g. John"
-                  value={formData.firstName}
-                  onChange={(e) => setFormData({...formData, firstName: e.target.value})}
-                  required 
-                />
-                <Input 
-                  label="Last Name" 
-                  name="lastName"
-                  placeholder="e.g. Doe"
-                  value={formData.lastName}
-                  onChange={(e) => setFormData({...formData, lastName: e.target.value})}
-                  required 
-                />
+            {state?.success ? (
+              <div className="bg-brand-green-50 border border-brand-green-200 text-brand-green-800 p-6 rounded-xl text-center space-y-4">
+                <div className="text-4xl">✉️</div>
+                <h3 className="text-xl font-bold">Account Created!</h3>
+                <p className="text-sm text-slate-600">
+                  Your registration with Glorious Group of Schools is successful. If email confirmation is enabled, please verify your email address to log in.
+                </p>
+                <div className="pt-2">
+                  <Link
+                    href="/login"
+                    className="inline-block px-6 py-2.5 bg-brand-green text-white font-semibold rounded-lg hover:bg-brand-green-700 transition-colors shadow-sm text-sm"
+                  >
+                    Proceed to Login →
+                  </Link>
+                </div>
               </div>
+            ) : (
+              <form className="space-y-5" action={formAction}>
+                {state?.error && (
+                  <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-xl text-sm flex items-center gap-2">
+                    <span>⚠️</span>
+                    <span>{state.error}</span>
+                  </div>
+                )}
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                <Input 
-                  type="email"
-                  label="Email Address" 
-                  name="email"
-                  placeholder="parent@example.com"
-                  value={formData.email}
-                  onChange={(e) => setFormData({...formData, email: e.target.value})}
-                  required 
-                />
-                <Input 
-                  type="tel"
-                  label="Phone Number" 
-                  name="phone"
-                  placeholder="0800 000 0000"
-                  value={formData.phone}
-                  onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                  required 
-                />
-              </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <Input 
+                    label="First Name" 
+                    name="firstName"
+                    placeholder="e.g. John"
+                    required 
+                  />
+                  <Input 
+                    label="Last Name" 
+                    name="lastName"
+                    placeholder="e.g. Doe"
+                    required 
+                  />
+                </div>
 
-              <Select 
-                label="I am registering as a..." 
-                name="accountType"
-                value={formData.accountType}
-                onChange={(e) => setFormData({...formData, accountType: e.target.value})}
-                options={[
-                  { value: "parent", label: "Parent/Guardian" },
-                  { value: "student", label: "Student" },
-                  { value: "staff", label: "Staff Member" },
-                ]}
-                required
-              />
-              
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 pt-2">
-                <Input 
-                  type="password"
-                  label="Password" 
-                  name="password"
-                  placeholder="Create a password"
-                  value={formData.password}
-                  onChange={(e) => setFormData({...formData, password: e.target.value})}
-                  required 
-                />
-                <Input 
-                  type="password"
-                  label="Confirm Password" 
-                  name="confirmPassword"
-                  placeholder="Repeat your password"
-                  value={formData.confirmPassword}
-                  onChange={(e) => setFormData({...formData, confirmPassword: e.target.value})}
-                  required 
-                />
-              </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  <Input 
+                    type="email"
+                    label="Email Address" 
+                    name="email"
+                    placeholder="parent@example.com"
+                    required 
+                  />
+                  <Input 
+                    type="tel"
+                    label="Phone Number" 
+                    name="phone"
+                    placeholder="0800 000 0000"
+                  />
+                </div>
 
-              <div className="pt-2">
-                <Button 
-                  type="submit" 
-                  className="w-full font-bold text-base h-12" 
-                  size="lg"
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting ? (
-                    <span className="flex items-center justify-center gap-2">
-                      <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none"/><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/></svg>
-                      Creating account...
-                    </span>
-                  ) : 'Create Account'}
-                </Button>
-              </div>
-            </form>
+                <Select 
+                  label="I am registering as a..." 
+                  name="accountType"
+                  defaultValue="parent"
+                  options={[
+                    { value: "parent", label: "Parent/Guardian" },
+                    { value: "student", label: "Student" },
+                    { value: "teacher", label: "Teacher / Staff Member" },
+                  ]}
+                  required
+                />
+                
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 pt-2">
+                  <Input 
+                    type="password"
+                    label="Password" 
+                    name="password"
+                    placeholder="At least 6 characters"
+                    required 
+                  />
+                  <Input 
+                    type="password"
+                    label="Confirm Password" 
+                    name="confirmPassword"
+                    placeholder="Repeat your password"
+                    required 
+                  />
+                </div>
+
+                <div className="pt-2">
+                  <Button 
+                    type="submit" 
+                    className="w-full font-bold text-base h-12" 
+                    size="lg"
+                    disabled={isPending}
+                  >
+                    {isPending ? (
+                      <span className="flex items-center justify-center gap-2">
+                        <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none"/><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/></svg>
+                        Creating account...
+                      </span>
+                    ) : 'Create Account'}
+                  </Button>
+                </div>
+              </form>
+            )}
 
             <div className="mt-6 text-center text-sm">
               <span className="text-slate-600">Already have an account? </span>
