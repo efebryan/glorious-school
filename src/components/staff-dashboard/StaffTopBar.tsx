@@ -6,14 +6,11 @@ import { usePathname } from "next/navigation";
 import {
   getNavForRole,
   MOCK_STAFF,
-  STAFF_UNREAD_COUNT,
   STAFF_ROLE_LABELS,
-  STAFF_ROLE_COLORS,
   StaffRole,
 } from "@/lib/staff-dashboard-config";
 import { StaffNotificationDropdown } from "@/components/staff-dashboard/StaffNotificationDropdown";
 import { NavIcon } from "@/components/ui/NavIcon";
-import { ProfilePhotoUpload } from "@/components/ui/ProfilePhotoUpload";
 
 interface StaffTopBarProps {
   activeRole: StaffRole;
@@ -25,12 +22,10 @@ export function StaffTopBar({ activeRole, onRoleChange }: StaffTopBarProps) {
   const pathname = usePathname();
   const navItems = getNavForRole(activeRole);
 
-  // Close on route change
   useEffect(() => {
     setOpen(false);
   }, [pathname]);
 
-  // Lock body scroll
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
     return () => {
@@ -38,77 +33,130 @@ export function StaffTopBar({ activeRole, onRoleChange }: StaffTopBarProps) {
     };
   }, [open]);
 
-  // Derive page title
-  const currentPage =
-    navItems.find((i) => pathname.startsWith(i.href))?.name ?? "Dashboard";
+  // Derive current page name
+  const currentItem = navItems.find((i) => pathname.startsWith(i.href));
+  const currentPage = currentItem?.name ?? "Overview";
 
   return (
     <>
-      {/* Responsive header bar */}
-      <header className="sticky top-0 z-30 bg-white border-b border-slate-200/80 shadow-sm">
-        <div className="flex items-center justify-between h-14 lg:h-16 px-4 lg:px-8">
-          <div className="flex items-center gap-3">
+      <header className="sticky top-0 z-20 bg-white border-b border-slate-200/70 shadow-xs">
+        <div className="flex items-center justify-between h-16 px-4 lg:px-8 gap-4">
+          {/* Left: Breadcrumbs + Session Pill */}
+          <div className="flex items-center gap-3 min-w-0">
             <button
               onClick={() => setOpen(true)}
-              className="lg:hidden p-1.5 -ml-1.5 rounded-md text-slate-600 hover:bg-slate-100 transition-colors"
-              aria-label="Open menu"
+              className="lg:hidden p-2 -ml-2 rounded-lg text-slate-600 hover:bg-slate-100 transition-colors"
+              aria-label="Open navigation menu"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             </button>
-            <span className="text-sm font-semibold text-slate-800 truncate">{currentPage}</span>
-            <span className={`hidden sm:inline-flex text-[10px] font-bold px-2 py-0.5 rounded-full border ${STAFF_ROLE_COLORS[activeRole]}`}>
-              {STAFF_ROLE_LABELS[activeRole]}
-            </span>
+
+            {/* Breadcrumb: Overview > Teacher */}
+            <div className="flex items-center gap-2 text-sm font-semibold text-slate-800">
+              <span className="truncate">{currentPage}</span>
+              <svg className="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7" />
+              </svg>
+              <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200/60">
+                {STAFF_ROLE_LABELS[activeRole]}
+              </span>
+            </div>
+
+            <div className="hidden md:block h-4 w-px bg-slate-200 mx-1" />
+
+            {/* Session Pill */}
+            <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-200/80 text-xs text-slate-600 font-medium">
+              <svg className="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              <span>
+                <strong className="text-slate-800 font-semibold">{MOCK_STAFF.session} Academic Session</strong> — {MOCK_STAFF.term}
+              </span>
+            </div>
           </div>
 
-          <div className="flex items-center gap-2">
+          {/* Right: Search + Quick Tools + User Profile Info */}
+          <div className="flex items-center gap-3">
+            {/* Search Input with Ctrl K */}
+            <div className="relative hidden xl:block w-72">
+              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+              </div>
+              <input
+                type="text"
+                placeholder="Search students, classes, results..."
+                className="w-full pl-9 pr-14 py-2 text-xs bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-emerald-500 focus:bg-white transition-all text-slate-700 placeholder:text-slate-400"
+              />
+              <div className="absolute inset-y-0 right-0 pr-2 flex items-center pointer-events-none">
+                <kbd className="px-1.5 py-0.5 text-[10px] font-semibold text-slate-400 bg-white border border-slate-200 rounded shadow-xs">
+                  Ctrl K
+                </kbd>
+              </div>
+            </div>
+
+            {/* Help / FAQ */}
+            <button
+              className="p-2 text-slate-400 hover:text-slate-600 hover:bg-slate-100 rounded-lg transition-colors"
+              title="Help & Guidelines"
+              aria-label="Help"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </button>
+
+            {/* Notification Dropdown with badge */}
             <StaffNotificationDropdown />
+
+            {/* Profile Avatar & Details */}
             <Link
               href="/staff-dashboard/profile"
-              className="flex items-center"
-              title="My Profile"
+              className="flex items-center gap-2.5 pl-2 hover:opacity-90 transition-opacity"
             >
-              <ProfilePhotoUpload
-                initials={MOCK_STAFF.initials}
-                name={`${MOCK_STAFF.firstName} ${MOCK_STAFF.lastName}`}
-                size="sm"
-                editable={false}
-                showUploadButton={false}
-              />
+              <div className="w-9 h-9 rounded-full bg-[#0d5228] text-[#34d399] font-bold flex items-center justify-center text-xs shadow-sm ring-2 ring-emerald-500/20">
+                {MOCK_STAFF.initials}
+              </div>
+              <div className="hidden lg:flex flex-col text-left leading-tight">
+                <span className="text-xs font-bold text-slate-900">{MOCK_STAFF.displayName}</span>
+                <span className="text-[10px] font-semibold text-emerald-700">{MOCK_STAFF.designation}</span>
+              </div>
             </Link>
           </div>
         </div>
       </header>
 
-      {/* Mobile drawer overlay */}
+      {/* Mobile Drawer */}
       <div
         className={`lg:hidden fixed inset-0 z-50 transition-all duration-300 ${
           open ? "visible" : "invisible pointer-events-none"
         }`}
       >
-        {/* Backdrop */}
         <div
-          className={`absolute inset-0 bg-slate-900/50 transition-opacity duration-300 ${
+          className={`absolute inset-0 bg-slate-900/50 backdrop-blur-xs transition-opacity duration-300 ${
             open ? "opacity-100" : "opacity-0"
           }`}
           onClick={() => setOpen(false)}
         />
-
-        {/* Drawer */}
         <div
-          className={`absolute top-0 left-0 bottom-0 w-72 max-w-[85vw] bg-brand-green-700 text-white flex flex-col transition-transform duration-300 ease-out shadow-2xl ${
+          className={`absolute top-0 left-0 bottom-0 w-72 max-w-[85vw] bg-[#07361e] text-white flex flex-col transition-transform duration-300 ease-out shadow-2xl ${
             open ? "translate-x-0" : "-translate-x-full"
           }`}
         >
-          {/* Drawer header */}
-          <div className="h-14 flex items-center justify-between px-4 border-b border-white/10 shrink-0">
-            <span className="font-bold text-sm tracking-wide text-white">Staff Portal</span>
+          {/* Header */}
+          <div className="h-16 flex items-center justify-between px-4 border-b border-white/10 shrink-0">
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 rounded-lg bg-[#10b981]/20 border border-[#10b981]/30 text-[#34d399] flex items-center justify-center font-bold text-sm">
+                G
+              </div>
+              <span className="font-bold text-sm text-white">Glorious Portal</span>
+            </div>
             <button
               onClick={() => setOpen(false)}
-              className="p-1.5 text-brand-green-100 hover:text-white rounded-md"
-              aria-label="Close menu"
+              className="p-1.5 text-emerald-200/70 hover:text-white rounded-md"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
@@ -116,22 +164,25 @@ export function StaffTopBar({ activeRole, onRoleChange }: StaffTopBarProps) {
             </button>
           </div>
 
-          {/* Mobile role switcher */}
-          <div className="px-4 pt-3 pb-2">
+          {/* Role selector */}
+          <div className="p-4 border-b border-white/5">
+            <p className="text-[10px] font-bold text-emerald-300/60 uppercase tracking-wider mb-2">
+              Workspace Role
+            </p>
             <select
               value={activeRole}
               onChange={(e) => onRoleChange(e.target.value as StaffRole)}
-              className="w-full text-xs bg-brand-green-800 text-white border border-brand-green-600 rounded-lg px-2.5 py-2 focus:outline-none focus:ring-1 focus:ring-brand-yellow font-medium"
+              className="w-full text-xs font-semibold bg-[#0d4728] border border-emerald-600/40 text-emerald-100 rounded-lg px-3 py-2"
             >
-              <option value="teacher" className="bg-brand-green-800 text-white">Teacher</option>
-              <option value="principal" className="bg-brand-green-800 text-white">Principal</option>
-              <option value="vice_principal" className="bg-brand-green-800 text-white">Vice Principal</option>
-              <option value="bursar" className="bg-brand-green-800 text-white">Bursar</option>
+              <option value="teacher">Teacher</option>
+              <option value="principal">Principal</option>
+              <option value="vice_principal">Vice Principal</option>
+              <option value="bursar">Bursar</option>
             </select>
           </div>
 
-          {/* Drawer nav */}
-          <nav className="flex-1 overflow-y-auto py-3 px-3 space-y-0.5">
+          {/* Nav */}
+          <nav className="flex-1 overflow-y-auto p-3 space-y-1">
             {navItems.map((item) => {
               const isActive =
                 item.href === "/staff-dashboard/overview"
@@ -142,41 +193,30 @@ export function StaffTopBar({ activeRole, onRoleChange }: StaffTopBarProps) {
                 <Link
                   key={item.name}
                   href={item.href}
-                  onClick={() => setOpen(false)}
-                  className={`flex items-center gap-3 px-3 py-3 rounded-lg text-sm transition-colors relative ${
+                  className={`flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold ${
                     isActive
-                      ? "bg-white/15 text-white font-semibold"
-                      : "text-brand-green-100 hover:bg-white/10 hover:text-white"
+                      ? "bg-[#10b981] text-white shadow-sm"
+                      : "text-emerald-100/80 hover:bg-white/5"
                   }`}
                 >
-                  {isActive && (
-                    <span className="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-5 bg-brand-yellow rounded-r-full" />
+                  <div className="flex items-center gap-3">
+                    <NavIcon name={item.name} className="w-4 h-4" />
+                    <span>{item.name}</span>
+                  </div>
+                  {item.name === "Results & Grading" && (
+                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-400/30">
+                      5 Due
+                    </span>
                   )}
-                  <NavIcon name={item.name} className="w-5 h-5 shrink-0" />
-                  <span>{item.name}</span>
-                  {item.name === "Messages" && STAFF_UNREAD_COUNT > 0 && (
-                    <span className="ml-auto bg-red-500 text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center">
-                      {STAFF_UNREAD_COUNT}
+                  {item.name === "Messages" && (
+                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-rose-500 text-white min-w-[18px] text-center">
+                      4
                     </span>
                   )}
                 </Link>
               );
             })}
           </nav>
-
-          {/* Drawer footer */}
-          <div className="p-4 border-t border-white/[.08] mt-auto">
-            <Link
-              href="/"
-              onClick={() => setOpen(false)}
-              className="flex items-center justify-center w-full gap-2 text-sm font-medium text-white/50 hover:text-red-400 hover:bg-red-500/10 px-4 py-2.5 rounded-lg transition-all"
-            >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-              </svg>
-              Sign Out
-            </Link>
-          </div>
         </div>
       </div>
     </>
