@@ -89,10 +89,10 @@ export function StaffSidebar({
               backgroundSize: "16px",
             }}
           >
-            <option value="teacher" className="bg-brand-green-800 text-white">👩‍🏫 Teacher</option>
-            <option value="principal" className="bg-brand-green-800 text-white">🏫 Principal</option>
-            <option value="vice_principal" className="bg-brand-green-800 text-white">📋 Vice Principal</option>
-            <option value="bursar" className="bg-brand-green-800 text-white">💰 Bursar</option>
+            <option value="teacher" className="bg-brand-green-800 text-white">Teacher</option>
+            <option value="principal" className="bg-brand-green-800 text-white">Principal</option>
+            <option value="vice_principal" className="bg-brand-green-800 text-white">Vice Principal</option>
+            <option value="bursar" className="bg-brand-green-800 text-white">Bursar</option>
           </select>
         </div>
       )}

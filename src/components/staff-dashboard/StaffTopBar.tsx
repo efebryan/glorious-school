@@ -123,10 +123,10 @@ export function StaffTopBar({ activeRole, onRoleChange }: StaffTopBarProps) {
               onChange={(e) => onRoleChange(e.target.value as StaffRole)}
               className="w-full text-xs bg-brand-green-800 text-white border border-brand-green-600 rounded-lg px-2.5 py-2 focus:outline-none focus:ring-1 focus:ring-brand-yellow font-medium"
             >
-              <option value="teacher" className="bg-brand-green-800 text-white">👩‍🏫 Teacher</option>
-              <option value="principal" className="bg-brand-green-800 text-white">🏫 Principal</option>
-              <option value="vice_principal" className="bg-brand-green-800 text-white">📋 Vice Principal</option>
-              <option value="bursar" className="bg-brand-green-800 text-white">💰 Bursar</option>
+              <option value="teacher" className="bg-brand-green-800 text-white">Teacher</option>
+              <option value="principal" className="bg-brand-green-800 text-white">Principal</option>
+              <option value="vice_principal" className="bg-brand-green-800 text-white">Vice Principal</option>
+              <option value="bursar" className="bg-brand-green-800 text-white">Bursar</option>
             </select>
           </div>
 
